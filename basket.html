@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NorthSMP | Shopping Basket &amp; Checkout</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <script defer src="assets/js/config.js"></script>
+    <script defer src="assets/js/store.js"></script>
+    <style>
+        .basket-item-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--block-border);
+            gap: 15px;
+        }
+        .basket-item-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex: 2;
+        }
+        .basket-item-img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+        .basket-item-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .basket-item-gift {
+            font-size: 0.85rem;
+            color: var(--giftcard-primary);
+            margin-top: 4px;
+        }
+        .basket-item-price {
+            flex: 1;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+        .basket-qty-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+        }
+        .qty-btn {
+            background: var(--block-light);
+            border: 1px solid var(--block-border);
+            color: var(--text-primary);
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .qty-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        .qty-display {
+            font-weight: 700;
+            min-width: 24px;
+            text-align: center;
+        }
+        .basket-item-remove {
+            background: none;
+            border: none;
+            color: var(--negative-hover-color);
+            cursor: pointer;
+            font-size: 1.1rem;
+            padding: 8px;
+            transition: transform 0.2s;
+        }
+        .basket-item-remove:hover {
+            transform: scale(1.2);
+        }
+        .coupon-section {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            max-width: 420px;
+        }
+        .coupon-input {
+            flex: 1;
+            background: var(--block-dark);
+            border: 1px solid var(--block-border);
+            color: var(--text-primary);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-family: inherit;
+            text-transform: uppercase;
+        }
+        .coupon-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        .order-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .order-modal.show {
+            display: flex;
+        }
+        .order-modal-box {
+            background: var(--block-color);
+            border: 2px solid var(--primary-color);
+            border-radius: 14px;
+            max-width: 520px;
+            width: 100%;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 210, 255, 0.3);
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <!-- Navigation Row -->
+        <div class="navigation-row">
+            <div class="navigation-left">
+                <a href="index.html" class="navigation-link text-navigation">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+            </div>
+
+            <div class="navigation-right">
+                <select class="currency-selector" onchange="window.store.setCurrency(this.value)">
+                    <option value="USD">USD ($)</option>
+                    <option value="EUR">EUR (€)</option>
+                    <option value="GBP">GBP (£)</option>
+                    <option value="CAD">CAD ($)</option>
+                    <option value="INR">INR (₹)</option>
+                    <option value="AUD">AUD ($)</option>
+                </select>
+                <a href="https://discord.gg/jfDn6n74Gr" target="_blank" class="navigation-link text-navigation">
+                    <i class="fa-brands fa-discord"></i> Discord
+                </a>
+            </div>
+        </div>
+
+        <!-- Header Block -->
+        <div class="header-block">
+            <div class="header-left">
+                <button class="btn-copy-ip" onclick="copyToClipboard('play.northsmp.net')">
+                    <i class="fa-solid fa-copy"></i>
+                </button>
+                <div class="store-info">
+                    <h1 class="store-title text-title">NorthSMP</h1>
+                    <p class="store-subtitle text-subtitle">Welcome to North SMP Store!</p>
+                </div>
+            </div>
+
+            <div class="header-center">
+                <a href="index.html" class="store-logo-link" aria-label="NorthSMP Store">
+                    <img src="assets/images/northsmp.png" alt="NorthSMP" class="store-logo is-pulsing">
+                </a>
+            </div>
+
+            <div class="header-right">
+                <a href="login.html" class="header-primary-button">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="button-text">Login</span>
+                </a>
+                <a href="basket.html" class="header-secondary-button">
+                    <div class="cart-badge">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <span class="button-text">Cart</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Checkout View -->
+        <div class="grid-row">
+            <div class="col-12">
+                <div class="checkout-page-block">
+                    <div class="checkout-page-accent-block"></div>
+                    <div class="checkout-page-content">
+                        
+                        <div class="checkout-header-flex">
+                            <div class="text-title">Your Shopping Basket</div>
+                            <div class="text-title checkout-total-price" id="basketTotalPrice">$0.00 USD</div>
+                        </div>
+
+                        <hr class="checkout-divider">
+
+                        <!-- Basket Items Table -->
+                        <div id="basketItemsContainer">
+                            <!-- Injected dynamically by renderCheckoutTable() -->
+                        </div>
+
+                        <!-- Coupon Code Field -->
+                        <div class="coupon-section">
+                            <input type="text" id="couponCodeInput" class="coupon-input" placeholder="Coupon Code (e.g. NORTH25)">
+                            <button type="button" class="primary-button" onclick="applyCouponCode()">Apply</button>
+                        </div>
+                        <div id="couponStatusMessage" style="font-size: 0.9rem; margin-top: -12px; margin-bottom: 16px;"></div>
+
+                        <!-- Complete Purchase Section -->
+                        <div class="checkout-footer" id="checkoutFooterSection">
+                            <div class="text-title">Complete Purchase</div>
+                            <hr class="checkout-divider">
+
+                            <div class="checkout-agreements">
+                                <label class="checkout-agreement-item">
+                                    <input type="checkbox" id="agree-terms" class="checkout-checkbox">
+                                    <span class="checkout-checkmark"></span>
+                                    <span class="checkout-agreement-text">
+                                        I agree with <a href="terms.html" target="_blank" class="checkout-agreement-link">Terms and Conditions <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a> of this purchase.
+                                    </span>
+                                </label>
+                                <label class="checkout-agreement-item">
+                                    <input type="checkbox" id="agree-age" class="checkout-checkbox">
+                                    <span class="checkout-checkmark"></span>
+                                    <span class="checkout-agreement-text">
+                                        I confirm that I am either over 16 or have guardian permission, and I consent to the collection and use of my data for this purchase under the <a href="privacy.html" target="_blank" class="checkout-agreement-link">Privacy Policy <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i></a>.
+                                    </span>
+                                </label>
+                                <label class="checkout-agreement-item">
+                                    <input type="checkbox" id="agree-account" class="checkout-checkbox">
+                                    <span class="checkout-checkmark"></span>
+                                    <span class="checkout-agreement-text" id="accountVerifyLabel">
+                                        I verify that the Minecraft account which I am currently using to make this purchase belongs to me.
+                                    </span>
+                                </label>
+                            </div>
+
+                            <div class="checkout-agreement-error" id="checkout-agreement-error" style="display: none;">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                <span>You must agree to all required checkboxes before continuing to checkout.</span>
+                            </div>
+
+                            <hr class="checkout-divider">
+                            <div class="checkout-footer-buttons">
+                                <a href="index.html" class="checkout-btn-continue" style="text-decoration: none;">
+                                    <i class="fa-solid fa-arrow-left"></i>
+                                    Continue Shopping
+                                </a>
+                                <button id="open-checkout-modal" class="checkout-btn-checkout" onclick="proceedToCheckout(event)">
+                                    Proceed to Checkout
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Order Simulation / Success Modal -->
+    <div class="order-modal" id="orderModal">
+        <div class="order-modal-box">
+            <div style="font-size: 3.5rem; color: var(--positive); margin-bottom: 12px;">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h2 class="text-header" style="font-size: 1.8rem;">Order Confirmed!</h2>
+            <p style="color: var(--text-secondary); margin: 12px 0 20px;">
+                Thank you for supporting <strong>NorthSMP</strong>! Your packages are being queued and will be automatically applied to your Minecraft account in-game.
+            </p>
+
+            <div style="background: var(--block-dark); padding: 15px; border-radius: 8px; border: 1px solid var(--block-border); text-align: left; margin-bottom: 20px;">
+                <div style="font-size: 0.9rem; color: var(--text-secondary);">Target Account: <strong style="color: var(--primary-color);" id="orderAccountName">Steve</strong></div>
+                <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 6px;">Total Paid: <strong style="color: var(--positive);" id="orderTotalPaid">$0.00</strong></div>
+                <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 6px;">Transaction ID: <span style="font-family: monospace;" id="orderTxnId">#NSMP-89241</span></div>
+            </div>
+
+            <button type="button" class="primary-button" style="width: 100%; justify-content: center;" onclick="closeOrderModal()">
+                Back to Store
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <div class="footer-bottom-content">
+                    <div class="footer-copyright">
+                        <p><strong>NorthSMP © 2026.</strong> All Rights Reserved.</p>
+                        <p class="footer-disclaimer">We are not affiliated with Mojang Studios, Minecraft, or Microsoft Corporation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="copy-toast" class="copy-toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-message">Action completed successfully!</span>
+    </div>
+
+    <script>
+        let appliedDiscountPercent = 0;
+
+        function applyCouponCode() {
+            const input = document.getElementById('couponCodeInput');
+            const msg = document.getElementById('couponStatusMessage');
+            const code = input.value.trim().toUpperCase();
+
+            if (code === 'NORTH25' || code === 'SALE25') {
+                appliedDiscountPercent = 25;
+                msg.style.color = 'var(--positive)';
+                msg.textContent = 'Coupon applied! 25% discount added.';
+            } else if (code === 'WELCOME') {
+                appliedDiscountPercent = 10;
+                msg.style.color = 'var(--positive)';
+                msg.textContent = 'Welcome coupon applied! 10% discount added.';
+            } else {
+                appliedDiscountPercent = 0;
+                msg.style.color = 'var(--negative)';
+                msg.textContent = 'Invalid or expired coupon code.';
+            }
+            renderCheckoutTable();
+        }
+
+        function renderCheckoutTable() {
+            if (!window.store) return;
+            const container = document.getElementById('basketItemsContainer');
+            const totalEl = document.getElementById('basketTotalPrice');
+            const footer = document.getElementById('checkoutFooterSection');
+            const cart = window.store.cart;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 40px 20px;">
+                        <i class="fa-solid fa-basket-shopping" style="font-size: 3.5rem; color: var(--block-light); margin-bottom: 16px;"></i>
+                        <h3 class="text-title">Your basket is currently empty</h3>
+                        <p class="text-desc" style="margin-bottom: 24px;">Browse our ranks, points, and crate keys to get started.</p>
+                        <a href="ranks.html" class="primary-button" style="display: inline-flex; text-decoration: none;">
+                            <i class="fa-solid fa-crown"></i> Browse Ranks
+                        </a>
+                    </div>
+                `;
+                totalEl.textContent = window.store.formatPrice(0);
+                if (footer) footer.style.display = 'none';
+                return;
+            }
+
+            if (footer) footer.style.display = 'block';
+
+            let rawTotal = window.store.getCartTotal();
+            if (appliedDiscountPercent > 0) {
+                rawTotal = rawTotal * ((100 - appliedDiscountPercent) / 100);
+            }
+            totalEl.textContent = window.store.formatPrice(rawTotal);
+
+            let html = '';
+            cart.forEach(item => {
+                const itemTotal = (item.price * (item.quantity || 1)).toFixed(2);
+                html += `
+                    <div class="basket-item-row">
+                        <div class="basket-item-info">
+                            <img src="${item.image || 'assets/images/ranks.svg'}" alt="${item.name}" class="basket-item-img">
+                            <div>
+                                <div class="basket-item-title">${item.name}</div>
+                                ${item.giftTo ? `<div class="basket-item-gift"><i class="fa-solid fa-gift"></i> Gift for: ${item.giftTo}</div>` : ''}
+                            </div>
+                        </div>
+
+                        <div class="basket-item-price">
+                            ${window.store.formatPrice(item.price * (item.quantity || 1))}
+                        </div>
+
+                        <div class="basket-qty-controls">
+                            <button class="qty-btn" onclick="window.store.updateQuantity('${item.id}', -1, ${item.giftTo ? `'${item.giftTo}'` : 'null'})">-</button>
+                            <span class="qty-display">${item.quantity || 1}</span>
+                            <button class="qty-btn" onclick="window.store.updateQuantity('${item.id}', 1, ${item.giftTo ? `'${item.giftTo}'` : 'null'})">+</button>
+                        </div>
+
+                        <button class="basket-item-remove" title="Remove" onclick="window.store.removeFromCart('${item.id}', ${item.giftTo ? `'${item.giftTo}'` : 'null'})">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+
+            // Update verify account label
+            const user = window.store.user;
+            const verifyLabel = document.getElementById('accountVerifyLabel');
+            if (verifyLabel) {
+                if (user && user.username) {
+                    verifyLabel.innerHTML = `I verify that the Minecraft account with the name <strong style="color:var(--primary-color);">${user.username}</strong> belongs to me.`;
+                } else {
+                    verifyLabel.innerHTML = `I verify that my Minecraft account belongs to me. (<a href="login.html" style="color:var(--primary-color);">Click here to log in first</a>)`;
+                }
+            }
+        }
+
+        function proceedToCheckout(e) {
+            e.preventDefault();
+            const agreeTerms = document.getElementById('agree-terms');
+            const agreeAge = document.getElementById('agree-age');
+            const agreeAccount = document.getElementById('agree-account');
+            const errBox = document.getElementById('checkout-agreement-error');
+
+            if (!agreeTerms.checked || !agreeAge.checked || !agreeAccount.checked) {
+                errBox.style.display = 'flex';
+                return;
+            }
+            errBox.style.display = 'none';
+
+            const user = window.store.user;
+            if (!user || !user.username) {
+                window.store.showToast('Please log in with your Minecraft username first!', 'error');
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 1000);
+                return;
+            }
+
+            // Launch Order Modal
+            let rawTotal = window.store.getCartTotal();
+            if (appliedDiscountPercent > 0) {
+                rawTotal = rawTotal * ((100 - appliedDiscountPercent) / 100);
+            }
+
+            document.getElementById('orderAccountName').textContent = user.username;
+            document.getElementById('orderTotalPaid').textContent = window.store.formatPrice(rawTotal);
+            document.getElementById('orderTxnId').textContent = '#NSMP-' + Math.floor(100000 + Math.random() * 900000);
+
+            document.getElementById('orderModal').classList.add('show');
+            window.store.clearCart();
+            renderCheckoutTable();
+        }
+
+        function closeOrderModal() {
+            document.getElementById('orderModal').classList.remove('show');
+            window.location.href = 'index.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(renderCheckoutTable, 120);
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NorthSMP | Crate Keys</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <script defer src="assets/js/config.js"></script>
+    <script defer src="assets/js/store.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- Navigation Row -->
+        <div class="navigation-row">
+            <div class="navigation-left">
+                <a href="index.html" class="navigation-link text-navigation">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+            </div>
+
+            <div class="navigation-right">
+                <select class="currency-selector" onchange="window.store.setCurrency(this.value)">
+                    <option value="USD">USD ($)</option>
+                    <option value="EUR">EUR (€)</option>
+                    <option value="GBP">GBP (£)</option>
+                    <option value="CAD">CAD ($)</option>
+                    <option value="INR">INR (₹)</option>
+                    <option value="AUD">AUD ($)</option>
+                </select>
+                <a href="https://discord.gg/jfDn6n74Gr" target="_blank" class="navigation-link text-navigation">
+                    <i class="fa-brands fa-discord"></i> Discord
+                </a>
+            </div>
+        </div>
+
+        <!-- Header Block -->
+        <div class="header-block">
+            <div class="header-left">
+                <button class="btn-copy-ip" onclick="copyToClipboard('play.northsmp.net')">
+                    <i class="fa-solid fa-copy"></i>
+                </button>
+                <div class="store-info">
+                    <h1 class="store-title text-title">NorthSMP</h1>
+                    <p class="store-subtitle text-subtitle">Welcome to North SMP Store!</p>
+                </div>
+            </div>
+
+            <div class="header-center">
+                <a href="index.html" class="store-logo-link" aria-label="NorthSMP Store">
+                    <img src="assets/images/northsmp.png" alt="NorthSMP" class="store-logo is-pulsing">
+                </a>
+            </div>
+
+            <div class="header-right">
+                <a href="login.html" class="header-primary-button">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="button-text">Login</span>
+                </a>
+                <a href="basket.html" class="header-secondary-button">
+                    <div class="cart-badge">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <span class="button-text">Cart</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Category Banner -->
+        <div class="grid-row">
+            <div class="col-12">
+                <div class="category-page-block">
+                    <div class="category-page-accent-block"></div>
+                    <div class="category-page-header">
+                        <h1 class="text-header">Crate Keys</h1>
+                        <p class="text-desc category-page-description">Open mystic crates at spawn (/warp crates) for god-tier weapons, custom armor enchantments, spawner eggs, in-game money, and ranks!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Navigation Pills -->
+        <div class="category-nav-bar" style="margin-top: 1.5rem;">
+            <a href="ranks.html" class="category-nav-pill"><i class="fa-solid fa-crown"></i> Economy Ranks</a>
+            <a href="coins.html" class="category-nav-pill"><i class="fa-solid fa-coins"></i> Network Points</a>
+            <a href="crates.html" class="category-nav-pill active"><i class="fa-solid fa-key"></i> Crate Keys</a>
+        </div>
+
+        <!-- Packages Grid Section -->
+        <div class="packages-section">
+            <div class="packages-grid-container">
+                <div class="grid-row" style="margin-top: 1rem;">
+                    
+                    <!-- 1. Keyall Key -->
+                    <div class="col-6">
+                        <div class="grid-package-block">
+                            <div class="grid-eclipse"></div>
+                            <div class="grid-image-container">
+                                <img src="assets/images/keyallkey.png" alt="Keyall Key" class="grid-image">
+                            </div>
+                            <div class="grid-content">
+                                <div class="grid-header">
+                                    <h2 class="text-title grid-title">Keyall Key</h2>
+                                </div>
+                                <div class="grid-price-container">
+                                    <span class="grid-price-old text-subtitle" data-base-price="1.49">$1.49 USD</span>
+                                    <span class="grid-price-sale text-subtitle" data-base-price="0.99">$0.99 USD</span>
+                                </div>
+                                <div class="grid-buttons">
+                                    <button type="button" class="primary-button" onclick="openLegendPackageModal(this)"
+                                        data-pkg-id="key-keyall"
+                                        data-pkg-name="Keyall Key"
+                                        data-pkg-price="0.99"
+                                        data-pkg-original-price="1.49"
+                                        data-pkg-category="Crates"
+                                        data-pkg-image="assets/images/keyallkey.png">
+                                        <i class="fa-solid fa-info"></i>
+                                    </button>
+                                    <button type="button" class="secondary-button quick-add-btn"
+                                        data-pkg-id="key-keyall"
+                                        data-pkg-name="Keyall Key"
+                                        data-pkg-price="0.99"
+                                        data-pkg-original-price="1.49"
+                                        data-pkg-category="Crates">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                                <template class="pkg-description-tmpl" data-pkg-id="key-keyall">
+                                    <div class="pkg-perks-container">
+                                        <h4><strong>🎉 KEYALL CRATE PARTY:</strong></h4>
+                                        <ul style="line-height: 1.8; margin-top: 8px;">
+                                            <li>Triggers an instant <strong>Server-Wide Keyall Party</strong>!</li>
+                                            <li>Gives a random crate key to <strong>EVERY online player</strong></li>
+                                            <li>Your name broadcasted in chat as the party sponsor</li>
+                                            <li>Receive <strong>2x Bonus Keys</strong> for yourself!</li>
+                                        </ul>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Turtle Key -->
+                    <div class="col-6">
+                        <div class="grid-package-block">
+                            <div class="grid-eclipse"></div>
+                            <div class="grid-image-container">
+                                <img src="assets/images/turtlekey.png" alt="Turtle Key" class="grid-image">
+                            </div>
+                            <div class="grid-content">
+                                <div class="grid-header">
+                                    <h2 class="text-title grid-title">Turtle Key</h2>
+                                </div>
+                                <div class="grid-price-container">
+                                    <span class="grid-price-old text-subtitle" data-base-price="1.99">$1.99 USD</span>
+                                    <span class="grid-price-sale text-subtitle" data-base-price="1.33">$1.33 USD</span>
+                                </div>
+                                <div class="grid-buttons">
+                                    <button type="button" class="primary-button" onclick="openLegendPackageModal(this)"
+                                        data-pkg-id="key-turtle"
+                                        data-pkg-name="Turtle Key"
+                                        data-pkg-price="1.33"
+                                        data-pkg-original-price="1.99"
+                                        data-pkg-category="Crates"
+                                        data-pkg-image="assets/images/turtlekey.png">
+                                        <i class="fa-solid fa-info"></i>
+                                    </button>
+                                    <button type="button" class="secondary-button quick-add-btn"
+                                        data-pkg-id="key-turtle"
+                                        data-pkg-name="Turtle Key"
+                                        data-pkg-price="1.33"
+                                        data-pkg-original-price="1.99"
+                                        data-pkg-category="Crates">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                                <template class="pkg-description-tmpl" data-pkg-id="key-turtle">
+                                    <div class="pkg-perks-container">
+                                        <h4><strong>🐢 TURTLE CRATE REWARDS:</strong></h4>
+                                        <ul style="line-height: 1.8; margin-top: 8px;">
+                                            <li>Enchanted Turtle Shells (Respiration III &amp; Water Breathing)</li>
+                                            <li>Potions of the Turtle Master (Resistance IV)</li>
+                                            <li>Scute bundle, Sea Pickles &amp; Kelp farms</li>
+                                            <li><strong>+1,500 Bonus Claim Blocks</strong> &amp; $15,000 In-Game Cash</li>
+                                        </ul>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Sun Key -->
+                    <div class="col-6">
+                        <div class="grid-package-block">
+                            <div class="grid-eclipse"></div>
+                            <div class="grid-image-container">
+                                <img src="assets/images/sunkey.png" alt="Sun Key" class="grid-image">
+                            </div>
+                            <div class="grid-content">
+                                <div class="grid-header">
+                                    <h2 class="text-title grid-title">Sun Key</h2>
+                                </div>
+                                <div class="grid-price-container">
+                                    <span class="grid-price-old text-subtitle" data-base-price="2.69">$2.69 USD</span>
+                                    <span class="grid-price-sale text-subtitle" data-base-price="1.99">$1.99 USD</span>
+                                </div>
+                                <div class="grid-buttons">
+                                    <button type="button" class="primary-button" onclick="openLegendPackageModal(this)"
+                                        data-pkg-id="key-sun"
+                                        data-pkg-name="Sun Key"
+                                        data-pkg-price="1.99"
+                                        data-pkg-original-price="2.69"
+                                        data-pkg-category="Crates"
+                                        data-pkg-image="assets/images/sunkey.png">
+                                        <i class="fa-solid fa-info"></i>
+                                    </button>
+                                    <button type="button" class="secondary-button quick-add-btn"
+                                        data-pkg-id="key-sun"
+                                        data-pkg-name="Sun Key"
+                                        data-pkg-price="1.99"
+                                        data-pkg-original-price="2.69"
+                                        data-pkg-category="Crates">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                                <template class="pkg-description-tmpl" data-pkg-id="key-sun">
+                                    <div class="pkg-perks-container">
+                                        <h4><strong>☀️ SUN CRATE REWARDS:</strong></h4>
+                                        <ul style="line-height: 1.8; margin-top: 8px;">
+                                            <li>Radiant Solar Armor (Protection IV &amp; Fire Protection IV)</li>
+                                            <li>Fire Aspect II &amp; Flame Enchanted Bows</li>
+                                            <li>Golden Apples &amp; Enchanted Golden Apples</li>
+                                            <li>Glowstone, Shroomlights &amp; $25,000 In-Game Cash</li>
+                                        </ul>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Tropical Key -->
+                    <div class="col-6">
+                        <div class="grid-package-block">
+                            <div class="grid-eclipse"></div>
+                            <div class="grid-image-container">
+                                <img src="assets/images/tropicalkey.png" alt="Tropical Key" class="grid-image">
+                            </div>
+                            <div class="grid-content">
+                                <div class="grid-header">
+                                    <h2 class="text-title grid-title">Tropical Key</h2>
+                                </div>
+                                <div class="grid-price-container">
+                                    <span class="grid-price-old text-subtitle" data-base-price="3.29">$3.29 USD</span>
+                                    <span class="grid-price-sale text-subtitle" data-base-price="2.49">$2.49 USD</span>
+                                </div>
+                                <div class="grid-buttons">
+                                    <button type="button" class="primary-button" onclick="openLegendPackageModal(this)"
+                                        data-pkg-id="key-tropical"
+                                        data-pkg-name="Tropical Key"
+                                        data-pkg-price="2.49"
+                                        data-pkg-original-price="3.29"
+                                        data-pkg-category="Crates"
+                                        data-pkg-image="assets/images/tropicalkey.png">
+                                        <i class="fa-solid fa-info"></i>
+                                    </button>
+                                    <button type="button" class="secondary-button quick-add-btn"
+                                        data-pkg-id="key-tropical"
+                                        data-pkg-name="Tropical Key"
+                                        data-pkg-price="2.49"
+                                        data-pkg-original-price="3.29"
+                                        data-pkg-category="Crates">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                                <template class="pkg-description-tmpl" data-pkg-id="key-tropical">
+                                    <div class="pkg-perks-container">
+                                        <h4><strong>🌴 TROPICAL CRATE REWARDS:</strong></h4>
+                                        <ul style="line-height: 1.8; margin-top: 8px;">
+                                            <li>Loyalty III &amp; Riptide III Enchanted Tridents</li>
+                                            <li>Exotic Coral blocks, Tropical Fish buckets &amp; Sea Lanterns</li>
+                                            <li>Depth Strider III Diamond Boots</li>
+                                            <li><strong>+5,000 Claim Blocks</strong> &amp; $35,000 In-Game Cash</li>
+                                        </ul>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Shell Key -->
+                    <div class="col-6">
+                        <div class="grid-package-block">
+                            <div class="grid-eclipse"></div>
+                            <div class="grid-image-container">
+                                <img src="assets/images/shellkey.png" alt="Shell Key" class="grid-image">
+                            </div>
+                            <div class="grid-content">
+                                <div class="grid-header">
+                                    <h2 class="text-title grid-title">Shell Key</h2>
+                                </div>
+                                <div class="grid-price-container">
+                                    <span class="grid-price-old text-subtitle" data-base-price="3.99">$3.99 USD</span>
+                                    <span class="grid-price-sale text-subtitle" data-base-price="2.99">$2.99 USD</span>
+                                </div>
+                                <div class="grid-buttons">
+                                    <button type="button" class="primary-button" onclick="openLegendPackageModal(this)"
+                                        data-pkg-id="key-shell"
+                                        data-pkg-name="Shell Key"
+                                        data-pkg-price="2.99"
+                                        data-pkg-original-price="3.99"
+                                        data-pkg-category="Crates"
+                                        data-pkg-image="assets/images/shellkey.png">
+                                        <i class="fa-solid fa-info"></i>
+                                    </button>
+                                    <button type="button" class="secondary-button quick-add-btn"
+                                        data-pkg-id="key-shell"
+                                        data-pkg-name="Shell Key"
+                                        data-pkg-price="2.99"
+                                        data-pkg-original-price="3.99"
+                                        data-pkg-category="Crates">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                                <template class="pkg-description-tmpl" data-pkg-id="key-shell">
+                                    <div class="pkg-perks-container">
+                                        <h4><strong>🐚 SHELL CRATE REWARDS:</strong></h4>
+                                        <ul style="line-height: 1.8; margin-top: 8px;">
+                                            <li>Nautilus Shells (8x) &amp; Heart of the Sea (Conduit Power)</li>
+                                            <li>Mending &amp; Unbreaking III Enchantment Books</li>
+                                            <li>Netherite Ingots &amp; Upgrade Smithing Templates</li>
+                                            <li><strong>+8,000 Claim Blocks</strong> &amp; $50,000 In-Game Cash</li>
+                                        </ul>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. Coral Key -->
+                    <div class="col-6">
+                        <div class="grid-package-block">
+                            <div class="grid-eclipse"></div>
+                            <div class="grid-image-container">
+                                <img src="assets/images/coralkey.png" alt="Coral Key" class="grid-image">
+                            </div>
+                            <div class="grid-content">
+                                <div class="grid-header">
+                                    <h2 class="text-title grid-title">Coral Key</h2>
+                                </div>
+                                <div class="grid-price-container">
+                                    <span class="grid-price-old text-subtitle" data-base-price="4.69">$4.69 USD</span>
+                                    <span class="grid-price-sale text-subtitle" data-base-price="3.49">$3.49 USD</span>
+                                </div>
+                                <div class="grid-buttons">
+                                    <button type="button" class="primary-button" onclick="openLegendPackageModal(this)"
+                                        data-pkg-id="key-coral"
+                                        data-pkg-name="Coral Key"
+                                        data-pkg-price="3.49"
+                                        data-pkg-original-price="4.69"
+                                        data-pkg-category="Crates"
+                                        data-pkg-image="assets/images/coralkey.png">
+                                        <i class="fa-solid fa-info"></i>
+                                    </button>
+                                    <button type="button" class="secondary-button quick-add-btn"
+                                        data-pkg-id="key-coral"
+                                        data-pkg-name="Coral Key"
+                                        data-pkg-price="3.49"
+                                        data-pkg-original-price="4.69"
+                                        data-pkg-category="Crates">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                                <template class="pkg-description-tmpl" data-pkg-id="key-coral">
+                                    <div class="pkg-perks-container">
+                                        <h4><strong>🪸 CORAL CRATE REWARDS:</strong></h4>
+                                        <ul style="line-height: 1.8; margin-top: 8px;">
+                                            <li>High-Tier Netherite Gear (Protection IV &amp; Sharpness V)</li>
+                                            <li>Elytra with Unbreaking III &amp; Mending</li>
+                                            <li>Shulker Boxes loaded with building supplies</li>
+                                            <li><strong>+12,000 Claim Blocks</strong> &amp; $75,000 In-Game Cash</li>
+                                        </ul>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. Spawner Key (Featured Tier - Centered) -->
+                    <div class="col-center-6">
+                        <div class="grid-package-block">
+                            <div class="grid-eclipse"></div>
+                            <div class="grid-image-container">
+                                <img src="assets/images/spawnerkey.png" alt="Spawner Key" class="grid-image">
+                            </div>
+                            <div class="grid-content">
+                                <div class="grid-header">
+                                    <h2 class="text-title grid-title">Spawner Key</h2>
+                                </div>
+                                <div class="grid-price-container">
+                                    <span class="grid-price-old text-subtitle" data-base-price="5.49">$5.49 USD</span>
+                                    <span class="grid-price-sale text-subtitle" data-base-price="3.99">$3.99 USD</span>
+                                </div>
+                                <div class="grid-buttons">
+                                    <button type="button" class="primary-button" onclick="openLegendPackageModal(this)"
+                                        data-pkg-id="key-spawner"
+                                        data-pkg-name="Spawner Key"
+                                        data-pkg-price="3.99"
+                                        data-pkg-original-price="5.49"
+                                        data-pkg-category="Crates"
+                                        data-pkg-image="assets/images/spawnerkey.png">
+                                        <i class="fa-solid fa-info"></i>
+                                    </button>
+                                    <button type="button" class="secondary-button quick-add-btn"
+                                        data-pkg-id="key-spawner"
+                                        data-pkg-name="Spawner Key"
+                                        data-pkg-price="3.99"
+                                        data-pkg-original-price="5.49"
+                                        data-pkg-category="Crates">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                                <template class="pkg-description-tmpl" data-pkg-id="key-spawner">
+                                    <div class="pkg-perks-container">
+                                        <h4><strong>👾 SPAWNER CRATE [TOP TIER]:</strong></h4>
+                                        <ul style="line-height: 1.8; margin-top: 8px;">
+                                            <li>Guaranteed <strong>Mob Spawner</strong> (Creeper, Iron Golem, Blaze, Skeleton)</li>
+                                            <li>Silk Touch Netherite Pickaxe (Efficiency VI)</li>
+                                            <li>Rare Mob Spawn Eggs &amp; Automatic farm components</li>
+                                            <li><strong>+20,000 Claim Blocks</strong> &amp; $100,000 In-Game Cash</li>
+                                        </ul>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <div class="footer-bottom-content">
+                    <div class="footer-copyright">
+                        <p><strong>NorthSMP © 2026.</strong> All Rights Reserved.</p>
+                        <p class="footer-disclaimer">We are not affiliated with Mojang Studios, Minecraft, or Microsoft Corporation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="legend-package-modal" id="legendPackageModal" aria-hidden="true">
+        <div class="legend-package-modal-content">
+            <div class="legend-package-modal-accent-block"></div>
+            <button type="button" class="legend-package-modal-close-btn" onclick="closeLegendPackageModal()" aria-label="Close">
+                <i class="fa-solid fa-times"></i>
+            </button>
+            <div class="legend-package-modal-header">
+                <h5 class="legend-package-modal-title" id="legendPackageModalTitle">Package Details</h5>
+            </div>
+            <div class="legend-package-modal-body">
+                <div class="legend-package-modal-description" id="legendPackageModalDescription"></div>
+                <div class="legend-package-modal-footer">
+                    <div class="legend-package-modal-pricing" id="legendPackageModalPricing"></div>
+                    <div class="legend-package-modal-actions" id="legendPackageModalActions"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="legend-modal" id="giftModal">
+        <div class="legend-modal-content">
+            <div class="legend-modal-accent-block"></div>
+            <div class="legend-modal-header">
+                <h5 class="legend-modal-title">Gift this Package</h5>
+            </div>
+            <div class="legend-modal-body">
+                <div class="gift-input-group">
+                    <form onsubmit="event.preventDefault(); window.store.submitGift();" id="giftForm" style="flex: 1; display: flex;">
+                        <input type="text" name="username" placeholder="Enter recipient's Minecraft IGN" class="gift-input" required />
+                    </form>
+                </div>
+                <div class="gift-recipient-preview" id="giftRecipientPreview" style="display: none;">
+                    <img src="https://mc-heads.net/avatar/Steve/64" alt="Skin" class="gift-recipient-avatar" id="giftRecipientAvatar">
+                    <div>
+                        <div style="font-weight: 700; color: var(--text-primary);" id="giftRecipientName">Player</div>
+                        <div style="font-size: 0.8rem; color: var(--positive);">Valid Target Account</div>
+                    </div>
+                </div>
+                <div class="legend-modal-actions" style="margin-top: 15px;">
+                    <button class="primary-button gift-submit-btn" type="button" onclick="window.store.submitGift()">
+                        <i class="fa-solid fa-gift"></i>
+                    </button>
+                    <button type="button" class="negative-button gift-modal-close" onclick="closeGiftModal()">
+                        <i class="fa-solid fa-times"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="copy-toast" class="copy-toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-message">Action completed successfully!</span>
+    </div>
+</body>
+</html>
+

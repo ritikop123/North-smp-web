@@ -1,0 +1,37 @@
+{
+  "name": "northsmp-webstore",
+  "version": "1.0.0",
+  "description": "Custom Minecraft SMP Webstore for NorthSMP",
+  "main": "server.cjs",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "start": "node server.cjs",
+    "server": "node server.cjs"
+  },
+  "keywords": [
+    "minecraft",
+    "tebex",
+    "store",
+    "northsmp",
+    "everfront"
+  ],
+  "author": "NorthSMP Team",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.7"
+  }
+}

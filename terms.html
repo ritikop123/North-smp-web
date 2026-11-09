@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NorthSMP | Terms &amp; Conditions</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <script defer src="assets/js/config.js"></script>
+    <script defer src="assets/js/store.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- Navigation Row -->
+        <div class="navigation-row">
+            <div class="navigation-left">
+                <a href="index.html" class="navigation-link text-navigation">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+            </div>
+
+            <div class="navigation-right">
+                <select class="currency-selector" onchange="window.store.setCurrency(this.value)">
+                    <option value="USD">USD ($)</option>
+                    <option value="EUR">EUR (€)</option>
+                    <option value="GBP">GBP (£)</option>
+                    <option value="CAD">CAD ($)</option>
+                    <option value="INR">INR (₹)</option>
+                    <option value="AUD">AUD ($)</option>
+                </select>
+                <a href="https://discord.gg/jfDn6n74Gr" target="_blank" class="navigation-link text-navigation">
+                    <i class="fa-brands fa-discord"></i> Discord
+                </a>
+            </div>
+        </div>
+
+        <!-- Header Block -->
+        <div class="header-block">
+            <div class="header-left">
+                <button class="btn-copy-ip" onclick="copyToClipboard('play.northsmp.net')">
+                    <i class="fa-solid fa-copy"></i>
+                </button>
+                <div class="store-info">
+                    <h1 class="store-title text-title">NorthSMP</h1>
+                    <p class="store-subtitle text-subtitle">Welcome to North SMP Store!</p>
+                </div>
+            </div>
+
+            <div class="header-center">
+                <a href="index.html" class="store-logo-link" aria-label="NorthSMP Store">
+                    <img src="assets/images/northsmp.png" alt="NorthSMP" class="store-logo is-pulsing">
+                </a>
+            </div>
+
+            <div class="header-right">
+                <a href="login.html" class="header-primary-button">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="button-text">Login</span>
+                </a>
+                <a href="basket.html" class="header-secondary-button">
+                    <div class="cart-badge">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <span class="button-text">Cart</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Content Card -->
+        <div class="grid-row">
+            <div class="col-12">
+                <div class="textbox-block" style="padding: 30px;">
+                    <div class="textbox-accent-block"></div>
+                    <div class="textbox-content">
+                        <h1 class="text-header" style="font-size: 1.8rem; margin-bottom: 20px;">Terms and Conditions of Purchase</h1>
+
+                        <div class="text-desc" style="line-height: 1.9; font-size: 0.95rem;">
+                            <h3 style="color: var(--primary-color); margin-top: 15px;">1. General Agreement</h3>
+                            <p>By placing an order on the official NorthSMP store, you agree to comply with and be bound by the following terms and conditions. All purchases made on this webstore are for virtual in-game goods to be utilized on the NorthSMP network.</p>
+
+                            <h3 style="color: var(--primary-color); margin-top: 20px;">2. Delivery of Goods</h3>
+                            <p>All virtual goods, including ranks, points, permissions, and crate keys, are automatically credited to your specified in-game username upon successful payment confirmation. In most circumstances, delivery takes 1 to 5 minutes. If your items do not arrive within 15 minutes, please reach out via our Discord ticket support system.</p>
+
+                            <h3 style="color: var(--primary-color); margin-top: 20px;">3. Refund &amp; Chargeback Policy</h3>
+                            <p>Because all items are digital non-tangible goods that are consumed or made available immediately upon purchase, all sales are final. Opening a fraudulent dispute or chargeback via PayPal, credit card, or your financial institution will result in an immediate and permanent blacklist from NorthSMP and associated Tebex webstores.</p>
+
+                            <h3 style="color: var(--primary-color); margin-top: 20px;">4. Server Rules &amp; Bans</h3>
+                            <p>Purchasing a rank, item, or crate key does not grant immunity from server rules. If you are found violating server gameplay rules (e.g., cheating, exploiting, harassment), staff reserves the right to mute or ban your account according to our standard moderation guidelines without entitlement to a refund.</p>
+
+                            <h3 style="color: var(--primary-color); margin-top: 20px;">5. Affiliation Disclaimer</h3>
+                            <p>NorthSMP is not affiliated with, endorsed by, or associated with Mojang AB, Microsoft Corporation, or any of their affiliates.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <div class="footer-bottom-content">
+                    <div class="footer-copyright">
+                        <p><strong>NorthSMP © 2026.</strong> All Rights Reserved.</p>
+                        <p class="footer-disclaimer">We are not affiliated with Mojang Studios, Minecraft, or Microsoft Corporation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="copy-toast" class="copy-toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-message">Action completed successfully!</span>
+    </div>
+</body>
+</html>

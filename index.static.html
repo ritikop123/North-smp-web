@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NorthSMP | Official Webstore</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <script defer src="assets/js/config.js"></script>
+    <script defer src="assets/js/store.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- Navigation Bar -->
+        <div class="navigation-row">
+            <div class="navigation-left">
+                <a href="index.html" class="navigation-link text-navigation">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+            </div>
+
+            <div class="navigation-right">
+                <!-- Theme Toggle -->
+
+                <!-- Currency Selector -->
+                <select class="currency-selector" onchange="window.store.setCurrency(this.value)">
+                    <option value="USD">USD ($)</option>
+                    <option value="EUR">EUR (€)</option>
+                    <option value="GBP">GBP (£)</option>
+                    <option value="CAD">CAD ($)</option>
+                    <option value="INR">INR (₹)</option>
+                    <option value="AUD">AUD ($)</option>
+                </select>
+
+                <!-- Discord Link -->
+                <a href="https://discord.gg/jfDn6n74Gr" target="_blank" rel="noopener noreferrer" class="navigation-link text-navigation">
+                    <i class="fa-brands fa-discord"></i> Discord
+                </a>
+            </div>
+        </div>
+
+        <!-- Header Block -->
+        <div class="header-block">
+            <div class="header-left">
+                <button class="btn-copy-ip" onclick="copyToClipboard('play.northsmp.net')" title="Click to copy server IP">
+                    <i class="fa-solid fa-copy"></i>
+                </button>
+
+                <div class="store-info">
+                    <h1 class="store-title text-title">NorthSMP</h1>
+                    <p class="store-subtitle text-subtitle">Welcome to North SMP Store!</p>
+                </div>
+            </div>
+
+            <div class="header-center">
+                <a href="index.html" class="store-logo-link" aria-label="NorthSMP Store">
+                    <img src="assets/images/northsmp.png" alt="NorthSMP" class="store-logo is-pulsing">
+                </a>
+            </div>
+
+            <div class="header-right">
+                <a href="login.html" class="header-primary-button">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="button-text">Login</span>
+                </a>
+
+                <a href="basket.html" class="header-secondary-button">
+                    <div class="cart-badge">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <span class="button-text">Cart</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Sale Announcement Banner with Live Countdown -->
+        <div class="sale-banner">
+            <div class="sale-tag">
+                <span class="text-header">25%</span>
+            </div>
+
+            <div class="sale-info">
+                <h2 class="sale-name text-header">SUMMER LAUNCH SALE</h2>
+            </div>
+
+            <div class="sale-accent-block"></div>
+
+            <div class="sale-countdown">
+                <div class="countdown-grid">
+                    <div class="countdown-unit">
+                        <strong class="text-header countdown-days">06</strong>
+                        <small>DAYS</small>
+                    </div>
+                    <div class="countdown-unit">
+                        <strong class="text-header countdown-hours">14</strong>
+                        <small>HRS</small>
+                    </div>
+                    <div class="countdown-unit">
+                        <strong class="text-header countdown-mins">30</strong>
+                        <small>MIN</small>
+                    </div>
+                    <div class="countdown-unit">
+                        <strong class="text-header countdown-secs">00</strong>
+                        <small>SEC</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Store Categories Grid -->
+        <div class="category-grid">
+            <div class="grid-row">
+                <!-- Economy Ranks Category -->
+                <div class="col-4">
+                    <a href="ranks.html" class="category-button">
+                        <div class="category-eclipse"></div>
+                        <div class="category-content">
+                            <h2 class="text-header">Economy Ranks</h2>
+                            <p class="text-title">Click to view</p>
+                        </div>
+                        <div class="category-image-container">
+                            <img src="assets/images/berry.png" alt="Server Ranks" style="max-height: 130px; object-fit: contain;">
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Network Points Category -->
+                <div class="col-4">
+                    <a href="coins.html" class="category-button">
+                        <div class="category-eclipse"></div>
+                        <div class="category-content">
+                            <h2 class="text-header">Network Points</h2>
+                            <p class="text-title" style="color: #64D2F9; font-weight: 600;">Coming Soon</p>
+                        </div>
+                        <div class="category-image-container">
+                            <img src="assets/images/tressurechest.png" alt="Network Points" style="max-height: 130px; object-fit: contain;">
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Crate Keys Category -->
+                <div class="col-4">
+                    <a href="crates.html" class="category-button">
+                        <div class="category-eclipse"></div>
+                        <div class="category-content">
+                            <h2 class="text-header">Crate Keys</h2>
+                            <p class="text-title">Click to view</p>
+                        </div>
+                        <div class="category-image-container">
+                            <img src="assets/images/keys.png" alt="Crate Keys" style="max-height: 130px; object-fit: contain;">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Information & Privacy Notice Grid -->
+        <div class="notice-grid">
+            <div class="grid-row">
+                <div class="col-6">
+                    <div class="textbox-block">
+                        <div class="textbox-accent-block"></div>
+                        <div class="textbox-content">
+                            <div class="textbox-icon-bg">#</div>
+                            <div class="textbox-header">
+                                <h2 class="text-title textbox-title">Information</h2>
+                            </div>
+                            <div class="textbox-description text-desc">
+                                We work relentlessly to provide the highest performance, zero lag, and regular feature updates for NorthSMP. Purchasing from our store directly funds server hosting, anti-cheat upgrades, custom plugin development, and exciting community events. Thank you for supporting our server!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="textbox-block">
+                        <div class="textbox-accent-block"></div>
+                        <div class="textbox-content">
+                            <div class="textbox-icon-bg">#</div>
+                            <div class="textbox-header">
+                                <h2 class="text-title textbox-title">Security & Delivery</h2>
+                            </div>
+                            <div class="textbox-description text-desc">
+                                All payments are securely encrypted and processed instantly. Once checkout is complete, your packages, ranks, points, or crate keys are credited automatically to your in-game account within 1-3 minutes. If you experience any delay, our 24/7 staff support is available on Discord.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Community Goal Module -->
+        <div class="module-grid">
+            <div class="col-12">
+                <div class="payment-goal-block">
+                    <div class="community-goal-accent-block"></div>
+                    <div class="payment-goal-content">
+                        <div class="payment-goal-icon-bg">$</div>
+                        <div class="payment-goal-header">
+                            <h2 class="text-title payment-goal-title">Community Goal - Dedicated High-RAM Node</h2>
+                        </div>
+                        <div class="payment-goal-progress-container">
+                            <div class="payment-goal-progress-bar">
+                                <div class="payment-goal-progress-fill" style="width: 0%; min-width: 45px;">
+                                    <span class="payment-goal-percentage">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div class="footer-section">
+                        <h3 class="footer-title">Play Now</h3>
+                        <p class="footer-description">
+                            Start your adventure today on NorthSMP! Join with Java & Bedrock editions to build your legacy.
+                        </p>
+                        <button class="footer-secondary-button" onclick="copyToClipboard('play.northsmp.net')">
+                            <i class="fa-solid fa-copy"></i>
+                            <span class="button-text">play.northsmp.net</span>
+                        </button>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3 class="footer-title">Discord Community</h3>
+                        <p class="footer-description">
+                            Join over 5,000+ members in our Discord for giveaways, update logs, sneak peeks, and friendly support!
+                        </p>
+                        <a href="https://discord.gg/jfDn6n74Gr" target="_blank" rel="noopener noreferrer" class="footer-primary-button">
+                            <i class="fa-brands fa-discord"></i>
+                            <span class="button-text">Join Discord</span>
+                        </a>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3 class="footer-title">Social Media</h3>
+                        <p class="footer-description">
+                            Check out our TikTok, YouTube, and Twitter to stay informed on events and tournaments!
+                        </p>
+                        <div class="footer-socials" style="display: flex; gap: 12px; margin-top: 10px;">
+                            <a href="#" class="footer-social-link" style="color: var(--text-secondary); font-size: 1.4rem;"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="#" class="footer-social-link" style="color: var(--text-secondary); font-size: 1.4rem;"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="#" class="footer-social-link" style="color: var(--text-secondary); font-size: 1.4rem;"><i class="fa-brands fa-x-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <div class="footer-bottom-content">
+                    <div class="footer-copyright">
+                        <p><strong>NorthSMP © 2026.</strong> All Rights Reserved.</p>
+                        <p class="footer-disclaimer">We are not affiliated with Mojang Studios, Minecraft, or Microsoft Corporation.</p>
+                    </div>
+                    <div class="footer-credits">
+                        <p>Powered by <a href="#" class="footer-credit-link"><strong>NorthSMP Web Engine</strong></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Element -->
+    <div id="copy-toast" class="copy-toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-message">Server IP copied to clipboard!</span>
+    </div>
+
+</body>
+</html>
+

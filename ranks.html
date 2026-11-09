@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NorthSMP | Economy Ranks</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <script defer src="assets/js/config.js"></script>
+    <script defer src="assets/js/store.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- Navigation Row -->
+        <div class="navigation-row">
+            <div class="navigation-left">
+                <a href="index.html" class="navigation-link text-navigation">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+            </div>
+
+            <div class="navigation-right">
+                <select class="currency-selector" onchange="window.store.setCurrency(this.value)">
+                    <option value="USD">USD ($)</option>
+                    <option value="EUR">EUR (€)</option>
+                    <option value="GBP">GBP (£)</option>
+                    <option value="CAD">CAD ($)</option>
+                    <option value="INR">INR (₹)</option>
+                    <option value="AUD">AUD ($)</option>
+                </select>
+                <a href="https://discord.gg/jfDn6n74Gr" target="_blank" class="navigation-link text-navigation">
+                    <i class="fa-brands fa-discord"></i> Discord
+                </a>
+            </div>
+        </div>
+
+        <!-- Header Block -->
+        <div class="header-block">
+            <div class="header-left">
+                <button class="btn-copy-ip" onclick="copyToClipboard('play.northsmp.net')">
+                    <i class="fa-solid fa-copy"></i>
+                </button>
+                <div class="store-info">
+                    <h1 class="store-title text-title">NorthSMP</h1>
+                    <p class="store-subtitle text-subtitle">Welcome to North SMP Store!</p>
+                </div>
+            </div>
+
+            <div class="header-center">
+                <a href="index.html" class="store-logo-link" aria-label="NorthSMP Store">
+                    <img src="assets/images/northsmp.png" alt="NorthSMP" class="store-logo is-pulsing">
+                </a>
+            </div>
+
+            <div class="header-right">
+                <a href="login.html" class="header-primary-button">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="button-text">Login</span>
+                </a>
+                <a href="basket.html" class="header-secondary-button">
+                    <div class="cart-badge">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <span class="button-text">Cart</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Category Banner -->
+        <div class="grid-row">
+            <div class="col-12">
+                <div class="category-page-block">
+                    <div class="category-page-accent-block"></div>
+                    <div class="category-page-header">
+                        <h1 class="text-header">Server Ranks</h1>
+                        <p class="text-desc category-page-description">Unlock permanent perks, in-game commands, weekly kits, custom prefixes, private vaults, and claim blocks across NorthSMP.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Navigation Pills -->
+        <div class="category-nav-bar" style="margin-top: 1.5rem;">
+            <a href="ranks.html" class="category-nav-pill active"><i class="fa-solid fa-crown"></i> Server Ranks</a>
+            <a href="coins.html" class="category-nav-pill"><i class="fa-solid fa-coins"></i> Network Points</a>
+            <a href="crates.html" class="category-nav-pill"><i class="fa-solid fa-key"></i> Crate Keys</a>
+        </div>
+
+        <!-- Packages Grid Section -->
+        <div class="packages-section">
+            <div class="packages-grid-container">
+                <div class="grid-row" style="margin-top: 1rem;">
+                    
+                    <!-- 1. LIME RANK -->
+                    <div class="col-6">
+                        <div class="grid-package-block">
+                            <div class="grid-eclipse"></div>
+                            <div class="grid-image-container">
+                                <img src="assets/images/lime.png" alt="Lime [Permanent]" class="grid-image">
+                            </div>
+                            <div class="grid-content">
+                                <div class="grid-header">
+                                    <h2 class="text-title grid-title">Lime [Permanent]</h2>
+                                </div>
+                                <div class="grid-price-container">
+                                    <span class="grid-price-old text-subtitle" data-base-price="8.99">$8.99 USD</span>
+                                    <span class="grid-price-sale text-subtitle" data-base-price="6.99">$6.99 USD</span>
+                                </div>
+                                <div class="grid-buttons">
+                                    <button type="button" class="primary-button" onclick="openLegendPackageModal(this)"
+                                        data-pkg-id="rank-lime"
+                                        data-pkg-name="Lime [Permanent]"
+                                        data-pkg-price="6.99"
+                                        data-pkg-original-price="8.99"
+                                        data-pkg-category="Ranks"
+                                        data-pkg-image="assets/images/lime.png">
+                                        <i class="fa-solid fa-info"></i>
+                                    </button>
+                                    <button type="button" class="secondary-button quick-add-btn"
+                                        data-pkg-id="rank-lime"
+                                        data-pkg-name="Lime [Permanent]"
+                                        data-pkg-price="6.99"
+                                        data-pkg-original-price="8.99"
+                                        data-pkg-category="Ranks"
+                                        data-pkg-image="assets/images/lime.png">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                                <template class="pkg-description-tmpl" data-pkg-id="rank-lime">
+                                    <div class="pkg-perks-container">
+                                        <h4><strong>🍋 LIME RANK PERKS &amp; PRIVILEGES:</strong></h4>
+                                        <ul style="line-height: 1.8; margin-top: 8px;">
+                                            <li><span style="color:#A3E635; font-weight:bold;">[Lime]</span> Chat Prefix &amp; Glowing Tablist Color</li>
+                                            <li><strong>/craft</strong> - Portable crafting table</li>
+                                            <li><strong>/hat</strong> - Wear any block on your head</li>
+                                            <li><strong>/near</strong> - Scan for nearby players</li>
+                                            <li><strong>3x Homes</strong> (/sethome)</li>
+                                            <li><strong>1x Private Player Vault</strong> (/pv 1)</li>
+                                            <li><strong>+2,500 Claim Blocks</strong></li>
+                                            <li>Priority Server Queue</li>
+                                            <li><strong>Weekly Kit Lime</strong> (Iron Gear &amp; Supplies)</li>
+                                        </ul>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. MANGO RANK -->
+                    <div class="col-6">
+                        <div class="grid-package-block">
+                            <div class="grid-eclipse"></div>
+                            <div class="grid-image-container">
+                                <img src="assets/images/mango.png" alt="Mango [Permanent]" class="grid-image">
+                            </div>
+                            <div class="grid-content">
+                                <div class="grid-header">
+                                    <h2 class="text-title grid-title">Mango [Permanent]</h2>
+                                </div>
+                                <div class="grid-price-container">
+                                    <span class="grid-price-old text-subtitle" data-base-price="15.99">$15.99 USD</span>
+                                    <span class="grid-price-sale text-subtitle" data-base-price="11.99">$11.99 USD</span>
+                                </div>
+                                <div class="grid-buttons">
+                                    <button type="button" class="primary-button" onclick="openLegendPackageModal(this)"
+                                        data-pkg-id="rank-mango"
+                                        data-pkg-name="Mango [Permanent]"
+                                        data-pkg-price="11.99"
+                                        data-pkg-original-price="15.99"
+                                        data-pkg-category="Ranks"
+                                        data-pkg-image="assets/images/mango.png">
+                                        <i class="fa-solid fa-info"></i>
+                                    </button>
+                                    <button type="button" class="secondary-button quick-add-btn"
+                                        data-pkg-id="rank-mango"
+                                        data-pkg-name="Mango [Permanent]"
+                                        data-pkg-price="11.99"
+                                        data-pkg-original-price="15.99"
+                                        data-pkg-category="Ranks"
+                                        data-pkg-image="assets/images/mango.png">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                                <template class="pkg-description-tmpl" data-pkg-id="rank-mango">
+                                    <div class="pkg-perks-container">
+                                        <h4><strong>🥭 MANGO RANK PERKS &amp; PRIVILEGES:</strong></h4>
+                                        <ul style="line-height: 1.8; margin-top: 8px;">
+                                            <li>Includes all <strong>Lime</strong> perks</li>
+                                            <li><span style="color:#F59E0B; font-weight:bold;">[Mango]</span> Sunset Orange-Gold Prefix &amp; Title</li>
+                                            <li><strong>/feed</strong> - Replenish hunger bar (15m cooldown)</li>
+                                            <li><strong>/anvil</strong> - Portable anvil access</li>
+                                            <li><strong>/enderchest</strong> (/ec) - Portable Ender Chest</li>
+                                            <li><strong>6x Homes</strong> (/sethome)</li>
+                                            <li><strong>2x Private Player Vaults</strong> (/pv 1-2)</li>
+                                            <li><strong>+6,000 Claim Blocks</strong></li>
+                                            <li><strong>Weekly Kit Mango</strong> (Diamond Gear Protection III)</li>
+                                        </ul>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. COCONUT RANK -->
+                    <div class="col-6">
+                        <div class="grid-package-block">
+                            <div class="grid-eclipse"></div>
+                            <div class="grid-image-container">
+                                <img src="assets/images/coconut.png" alt="Coconut [Permanent]" class="grid-image">
+                            </div>
+                            <div class="grid-content">
+                                <div class="grid-header">
+                                    <h2 class="text-title grid-title">Coconut [Permanent]</h2>
+                                </div>
+                                <div class="grid-price-container">
+                                    <span class="grid-price-old text-subtitle" data-base-price="21.99">$21.99 USD</span>
+                                    <span class="grid-price-sale text-subtitle" data-base-price="15.99">$15.99 USD</span>
+                                </div>
+                                <div class="grid-buttons">
+                                    <button type="button" class="primary-button" onclick="openLegendPackageModal(this)"
+                                        data-pkg-id="rank-coconut"
+                                        data-pkg-name="Coconut [Permanent]"
+                                        data-pkg-price="15.99"
+                                        data-pkg-original-price="21.99"
+                                        data-pkg-category="Ranks"
+                                        data-pkg-image="assets/images/coconut.png">
+                                        <i class="fa-solid fa-info"></i>
+                                    </button>
+                                    <button type="button" class="secondary-button quick-add-btn"
+                                        data-pkg-id="rank-coconut"
+                                        data-pkg-name="Coconut [Permanent]"
+                                        data-pkg-price="15.99"
+                                        data-pkg-original-price="21.99"
+                                        data-pkg-category="Ranks"
+                                        data-pkg-image="assets/images/coconut.png">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                                <template class="pkg-description-tmpl" data-pkg-id="rank-coconut">
+                                    <div class="pkg-perks-container">
+                                        <h4><strong>🥥 COCONUT RANK PERKS &amp; PRIVILEGES:</strong></h4>
+                                        <ul style="line-height: 1.8; margin-top: 8px;">
+                                            <li>Includes all <strong>Mango</strong> perks</li>
+                                            <li><span style="color:#06B6D4; font-weight:bold;">[Coconut]</span> Tropical Aqua-White Prefix &amp; Title</li>
+                                            <li><strong>/heal</strong> - Restore full health &amp; hunger (10m cooldown)</li>
+                                            <li><strong>/grindstone</strong> - Portable enchantment removal</li>
+                                            <li><strong>/fly</strong> in your claimed lands!</li>
+                                            <li><strong>10x Homes</strong> (/sethome)</li>
+                                            <li><strong>4x Private Player Vaults</strong> (/pv 1-4)</li>
+                                            <li><strong>+12,000 Claim Blocks</strong></li>
+                                            <li><strong>Weekly Kit Coconut</strong> (Protection IV Diamond Gear &amp; Tools)</li>
+                                        </ul>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. CHERRY RANK -->
+                    <div class="col-6">
+                        <div class="grid-package-block">
+                            <div class="grid-eclipse"></div>
+                            <div class="grid-image-container">
+                                <img src="assets/images/cherry.png" alt="Cherry [Permanent]" class="grid-image">
+                            </div>
+                            <div class="grid-content">
+                                <div class="grid-header">
+                                    <h2 class="text-title grid-title">Cherry [Permanent]</h2>
+                                </div>
+                                <div class="grid-price-container">
+                                    <span class="grid-price-old text-subtitle" data-base-price="29.99">$29.99 USD</span>
+                                    <span class="grid-price-sale text-subtitle" data-base-price="22.99">$22.99 USD</span>
+                                </div>
+                                <div class="grid-buttons">
+                                    <button type="button" class="primary-button" onclick="openLegendPackageModal(this)"
+                                        data-pkg-id="rank-cherry"
+                                        data-pkg-name="Cherry [Permanent]"
+                                        data-pkg-price="22.99"
+                                        data-pkg-original-price="29.99"
+                                        data-pkg-category="Ranks"
+                                        data-pkg-image="assets/images/cherry.png">
+                                        <i class="fa-solid fa-info"></i>
+                                    </button>
+                                    <button type="button" class="secondary-button quick-add-btn"
+                                        data-pkg-id="rank-cherry"
+                                        data-pkg-name="Cherry [Permanent]"
+                                        data-pkg-price="22.99"
+                                        data-pkg-original-price="29.99"
+                                        data-pkg-category="Ranks"
+                                        data-pkg-image="assets/images/cherry.png">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                                <template class="pkg-description-tmpl" data-pkg-id="rank-cherry">
+                                    <div class="pkg-perks-container">
+                                        <h4><strong>🍒 CHERRY RANK PERKS &amp; PRIVILEGES:</strong></h4>
+                                        <ul style="line-height: 1.8; margin-top: 8px;">
+                                            <li>Includes all <strong>Coconut</strong> perks</li>
+                                            <li><span style="color:#EC4899; font-weight:bold;">[Cherry]</span> Blossom Crimson-Pink Glowing Prefix</li>
+                                            <li><strong>/repair</strong> - Repair item in hand (without exp)</li>
+                                            <li><strong>/condense</strong> - Automatically compress ingots to blocks</li>
+                                            <li><strong>/speed</strong> - Toggle increased walking speed</li>
+                                            <li><strong>16x Homes</strong> (/sethome)</li>
+                                            <li><strong>7x Private Player Vaults</strong> (/pv 1-7)</li>
+                                            <li><strong>+22,000 Claim Blocks</strong></li>
+                                            <li><strong>2x Rare Crate Keys</strong> included on purchase!</li>
+                                            <li><strong>Weekly Kit Cherry</strong> (Full Netherite Gear with Sharpness V)</li>
+                                        </ul>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. BERRY RANK (TOP TIER - CENTERED) -->
+                    <div class="col-center-6">
+                        <div class="grid-package-block">
+                            <div class="grid-eclipse"></div>
+                            <div class="grid-image-container">
+                                <img src="assets/images/berry.png" alt="Berry [Permanent]" class="grid-image">
+                            </div>
+                            <div class="grid-content">
+                                <div class="grid-header">
+                                    <h2 class="text-title grid-title">Berry [Permanent]</h2>
+                                </div>
+                                <div class="grid-price-container">
+                                    <span class="grid-price-old text-subtitle" data-base-price="43.99">$43.99 USD</span>
+                                    <span class="grid-price-sale text-subtitle" data-base-price="32.99">$32.99 USD</span>
+                                </div>
+                                <div class="grid-buttons">
+                                    <button type="button" class="primary-button" onclick="openLegendPackageModal(this)"
+                                        data-pkg-id="rank-berry"
+                                        data-pkg-name="Berry [Permanent]"
+                                        data-pkg-price="32.99"
+                                        data-pkg-original-price="43.99"
+                                        data-pkg-category="Ranks"
+                                        data-pkg-image="assets/images/berry.png">
+                                        <i class="fa-solid fa-info"></i>
+                                    </button>
+                                    <button type="button" class="secondary-button quick-add-btn"
+                                        data-pkg-id="rank-berry"
+                                        data-pkg-name="Berry [Permanent]"
+                                        data-pkg-price="32.99"
+                                        data-pkg-original-price="43.99"
+                                        data-pkg-category="Ranks"
+                                        data-pkg-image="assets/images/berry.png">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                                <template class="pkg-description-tmpl" data-pkg-id="rank-berry">
+                                    <div class="pkg-perks-container">
+                                        <h4><strong>🫐 BERRY ULTIMATE TIER PERKS:</strong></h4>
+                                        <ul style="line-height: 1.8; margin-top: 8px;">
+                                            <li>Includes all <strong>Cherry</strong> perks</li>
+                                            <li><strong>UNLIMITED Server Access</strong> (bypass all full queues)</li>
+                                            <li><span style="color:#A855F7; font-weight:bold;">[Berry]</span> Animated Royal Indigo-Purple Crown Prefix</li>
+                                            <li><strong>/fly</strong> - Infinite Survival Flight Everywhere!</li>
+                                            <li><strong>/god</strong> - Toggleable invulnerability mode</li>
+                                            <li><strong>/repair all</strong> - Repair entire inventory instantly</li>
+                                            <li><strong>/back</strong> - Return to previous location upon death</li>
+                                            <li><strong>25x Homes</strong> (/sethome)</li>
+                                            <li><strong>10x Private Player Vaults</strong> (/pv 1-10)</li>
+                                            <li><strong>+40,000 Claim Blocks</strong></li>
+                                            <li><strong>5x Mythic Crate Keys</strong> included on purchase!</li>
+                                            <li>Direct private Discord channel with Server Leadership</li>
+                                            <li><strong>Weekly Kit Berry</strong> (Maxed God Netherite Armor, Tools &amp; Notch Apples)</li>
+                                        </ul>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <div class="footer-bottom-content">
+                    <div class="footer-copyright">
+                        <p><strong>NorthSMP © 2026.</strong> All Rights Reserved.</p>
+                        <p class="footer-disclaimer">We are not affiliated with Mojang Studios, Minecraft, or Microsoft Corporation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared Package Info Modal -->
+    <div class="legend-package-modal" id="legendPackageModal" aria-hidden="true">
+        <div class="legend-package-modal-content">
+            <div class="legend-package-modal-accent-block"></div>
+            <button type="button" class="legend-package-modal-close-btn" onclick="closeLegendPackageModal()" aria-label="Close">
+                <i class="fa-solid fa-times"></i>
+            </button>
+            <div class="legend-package-modal-header">
+                <h5 class="legend-package-modal-title" id="legendPackageModalTitle">Package Details</h5>
+            </div>
+            <div class="legend-package-modal-body">
+                <div class="legend-package-modal-description" id="legendPackageModalDescription"></div>
+                <div class="legend-package-modal-footer">
+                    <div class="legend-package-modal-pricing" id="legendPackageModalPricing"></div>
+                    <div class="legend-package-modal-actions" id="legendPackageModalActions"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shared Gift Modal with Live Recipient Preview -->
+    <div class="legend-modal" id="giftModal">
+        <div class="legend-modal-content">
+            <div class="legend-modal-accent-block"></div>
+            <div class="legend-modal-header">
+                <h5 class="legend-modal-title">Gift this Package</h5>
+            </div>
+            <div class="legend-modal-body">
+                <div class="gift-input-group">
+                    <form onsubmit="event.preventDefault(); window.store.submitGift();" id="giftForm" style="flex: 1; display: flex;">
+                        <input type="text" name="username" placeholder="Enter recipient's Minecraft IGN" class="gift-input" required />
+                    </form>
+                </div>
+                <div class="gift-recipient-preview" id="giftRecipientPreview" style="display: none;">
+                    <img src="https://mc-heads.net/avatar/Steve/64" alt="Skin" class="gift-recipient-avatar" id="giftRecipientAvatar">
+                    <div>
+                        <div style="font-weight: 700; color: var(--text-primary);" id="giftRecipientName">Player</div>
+                        <div style="font-size: 0.8rem; color: var(--positive);">Valid Target Account</div>
+                    </div>
+                </div>
+                <div class="legend-modal-actions" style="margin-top: 15px;">
+                    <button class="primary-button gift-submit-btn" type="button" onclick="window.store.submitGift()">
+                        <i class="fa-solid fa-gift"></i>
+                    </button>
+                    <button type="button" class="negative-button gift-modal-close" onclick="closeGiftModal()">
+                        <i class="fa-solid fa-times"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Element -->
+    <div id="copy-toast" class="copy-toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-message">Action completed successfully!</span>
+    </div>
+
+</body>
+</html>

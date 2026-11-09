@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NorthSMP | Player Login</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <script defer src="assets/js/config.js"></script>
+    <script defer src="assets/js/store.js"></script>
+    <style>
+        .player-preview-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            padding: 15px;
+            background: var(--block-dark);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--block-border);
+        }
+        .player-preview-avatar {
+            width: 54px;
+            height: 54px;
+            border-radius: 8px;
+            image-rendering: pixelated;
+            border: 2px solid var(--primary-color);
+        }
+        .player-preview-info {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <!-- Navigation Row -->
+        <div class="navigation-row">
+            <div class="navigation-left">
+                <a href="index.html" class="navigation-link text-navigation">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+            </div>
+            <div class="navigation-right">
+                <a href="https://discord.gg/jfDn6n74Gr" target="_blank" class="navigation-link text-navigation">
+                    <i class="fa-brands fa-discord"></i> Discord
+                </a>
+            </div>
+        </div>
+
+        <!-- Header Block -->
+        <div class="header-block">
+            <div class="header-left">
+                <button class="btn-copy-ip" onclick="copyToClipboard('play.northsmp.net')">
+                    <i class="fa-solid fa-copy"></i>
+                </button>
+                <div class="store-info">
+                    <h1 class="store-title text-title">NorthSMP</h1>
+                    <p class="store-subtitle text-subtitle">Welcome to North SMP Store!</p>
+                </div>
+            </div>
+
+            <div class="header-center">
+                <a href="index.html" class="store-logo-link" aria-label="NorthSMP Store">
+                    <img src="assets/images/northsmp.png" alt="NorthSMP" class="store-logo is-pulsing">
+                </a>
+            </div>
+
+            <div class="header-right">
+                <a href="basket.html" class="header-secondary-button">
+                    <div class="cart-badge">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <span class="button-text">Cart</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Login Container -->
+        <div class="grid-row">
+            <div class="col-12">
+                <div class="login-page-block">
+                    <div class="login-page-accent-block"></div>
+
+                    <div class="login-page-content" id="loginFormContainer">
+                        <div class="login-page-header">
+                            <h1 class="text-header login-page-title">Please Log In</h1>
+                            <p class="text-desc login-page-description">
+                                Enter your exact Minecraft in-game username to link purchases directly to your account.
+                            </p>
+                        </div>
+
+                        <!-- Platform Switcher -->
+                        <div class="login-platform-toggle">
+                            <button type="button" class="login-platform-btn mode-active" id="btnJava" onclick="selectPlatform('java')">
+                                <i class="fa-brands fa-java"></i> Java Edition
+                            </button>
+                            <button type="button" class="login-platform-btn mode-inactive" id="btnBedrock" onclick="selectPlatform('bedrock')">
+                                <i class="fa-solid fa-mobile-screen"></i> Bedrock Edition
+                            </button>
+                        </div>
+
+                        <!-- Login Form -->
+                        <form class="login-form" id="mainLoginForm" onsubmit="handleLoginSubmit(event)">
+                            <div style="position: relative; width: 100%;">
+                                <input class="login-input" type="text" name="ign" id="usernameInput"
+                                    placeholder="Enter your in-game username (e.g. Steve)" 
+                                    oninput="handleUsernameInput(this.value)"
+                                    required autocomplete="off" />
+                            </div>
+
+                            <!-- Live Avatar Preview Card -->
+                            <div class="player-preview-container" id="avatarPreviewBox" style="display: none;">
+                                <img src="https://mc-heads.net/avatar/Steve/64" alt="Skin" class="player-preview-avatar" id="avatarPreviewImg">
+                                <div class="player-preview-info">
+                                    <div style="font-weight: 700; font-size: 1.1rem;" id="previewUsername">Steve</div>
+                                    <div style="font-size: 0.85rem; color: var(--text-secondary);" id="previewEdition">Java Edition</div>
+                                </div>
+                            </div>
+
+                            <button class="primary-button login-submit-btn" type="submit" style="width: 100%; justify-content: center; margin-top: 15px;">
+                                <span class="button-text">Continue to Store</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Already Logged In View -->
+                    <div class="login-page-content" id="alreadyLoggedInContainer" style="display: none;">
+                        <div class="login-page-header">
+                            <h1 class="text-header login-page-title">Welcome Back!</h1>
+                            <p class="text-desc login-page-description">You are currently logged into NorthSMP.</p>
+                        </div>
+
+                        <div class="player-preview-container" style="margin: 25px auto; max-width: 400px;">
+                            <img src="" alt="Skin" class="player-preview-avatar" id="activeUserAvatar">
+                            <div class="player-preview-info">
+                                <div style="font-weight: 700; font-size: 1.2rem;" id="activeUserName"></div>
+                                <div style="font-size: 0.85rem; color: var(--positive);" id="activeUserEdition"></div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 15px; justify-content: center; margin-top: 20px;">
+                            <a href="index.html" class="primary-button" style="text-decoration: none;">
+                                <i class="fa-solid fa-bag-shopping"></i> Continue Shopping
+                            </a>
+                            <button type="button" class="negative-button" onclick="handleLogoutClick()">
+                                <i class="fa-solid fa-right-from-bracket"></i> Switch Account
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <div class="footer-bottom-content">
+                    <div class="footer-copyright">
+                        <p><strong>NorthSMP © 2026.</strong> All Rights Reserved.</p>
+                        <p class="footer-disclaimer">We are not affiliated with Mojang Studios, Minecraft, or Microsoft Corporation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="copy-toast" class="copy-toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-message">Logged in successfully!</span>
+    </div>
+
+    <script>
+        let currentPlatform = 'java';
+
+        function selectPlatform(platform) {
+            currentPlatform = platform;
+            const btnJava = document.getElementById('btnJava');
+            const btnBedrock = document.getElementById('btnBedrock');
+            const input = document.getElementById('usernameInput');
+
+            if (platform === 'java') {
+                btnJava.classList.add('mode-active');
+                btnJava.classList.remove('mode-inactive');
+                btnBedrock.classList.add('mode-inactive');
+                btnBedrock.classList.remove('mode-active');
+                if (input.value.startsWith('.')) {
+                    input.value = input.value.substring(1);
+                }
+            } else {
+                btnBedrock.classList.add('mode-active');
+                btnBedrock.classList.remove('mode-inactive');
+                btnJava.classList.add('mode-inactive');
+                btnJava.classList.remove('mode-active');
+                if (!input.value.startsWith('.') && input.value.length > 0) {
+                    input.value = '.' + input.value;
+                }
+            }
+            handleUsernameInput(input.value);
+        }
+
+        let inputTimer;
+        function handleUsernameInput(val) {
+            clearTimeout(inputTimer);
+            const box = document.getElementById('avatarPreviewBox');
+            const nameEl = document.getElementById('previewUsername');
+            const editionEl = document.getElementById('previewEdition');
+            const imgEl = document.getElementById('avatarPreviewImg');
+
+            const clean = val.trim();
+            if (!clean) {
+                box.style.display = 'none';
+                return;
+            }
+
+            box.style.display = 'flex';
+            nameEl.textContent = clean;
+            editionEl.textContent = currentPlatform === 'bedrock' ? 'Bedrock Edition (Geyser)' : 'Java Edition';
+
+            inputTimer = setTimeout(() => {
+                const lookupName = clean.startsWith('.') ? clean.substring(1) : clean;
+                imgEl.src = `https://mc-heads.net/avatar/${encodeURIComponent(lookupName)}/64`;
+            }, 300);
+        }
+
+        function handleLoginSubmit(e) {
+            e.preventDefault();
+            const input = document.getElementById('usernameInput');
+            const username = input.value.trim();
+            if (!username) return;
+
+            window.store.login(username, currentPlatform);
+            setTimeout(() => {
+                const referrer = document.referrer;
+                if (referrer && !referrer.includes('login.html')) {
+                    window.location.href = referrer;
+                } else {
+                    window.location.href = 'index.html';
+                }
+            }, 600);
+        }
+
+        function handleLogoutClick() {
+            window.store.logout();
+            checkExistingAuth();
+        }
+
+        function checkExistingAuth() {
+            const user = window.store ? window.store.user : JSON.parse(localStorage.getItem('north_user') || 'null');
+            const formBox = document.getElementById('loginFormContainer');
+            const activeBox = document.getElementById('alreadyLoggedInContainer');
+
+            if (user && user.username) {
+                formBox.style.display = 'none';
+                activeBox.style.display = 'block';
+                document.getElementById('activeUserName').textContent = user.username;
+                document.getElementById('activeUserEdition').textContent = `Logged in (${user.platform === 'bedrock' ? 'Bedrock' : 'Java'})`;
+                const lookup = user.username.startsWith('.') ? user.username.substring(1) : user.username;
+                document.getElementById('activeUserAvatar').src = `https://mc-heads.net/avatar/${encodeURIComponent(lookup)}/64`;
+            } else {
+                formBox.style.display = 'block';
+                activeBox.style.display = 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(checkExistingAuth, 100);
+        });
+    </script>
+</body>
+</html>
+
