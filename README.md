@@ -1,44 +1,79 @@
 # NorthSMP Webstore
 
-An exact modern Minecraft Webstore inspired by the **Everfront Base Template 4** (as featured on [FlaticSMP](https://flaticsmp.everfront.store/)), custom built and branded for **NorthSMP**.
+The official modern webstore for **NorthSMP**, built with **React**, **TypeScript**, and **Vite**, featuring custom high-performance glassmorphism design, anti-scrape obfuscation, and native **Cloudflare Pages** deployment.
 
 ---
 
-## 🌟 Features Included
+## 🌟 Key Features
 
-- **Exact Everfront Base Template Design**:
-  - Dark glassmorphism cards, glowing borders, crisp Poppins typography, and modern responsive grid.
+- **React 19 + TypeScript**:
+  - Fully type-safe component and state architecture (`src/types/store.ts`).
+  - Client-side routing with `react-router-dom` and automatic scroll-to-top.
+  - Minified, obfuscated production output in `dist/` with no sourcemaps to prevent scraping.
+  
+- **Visual Design & Symmetry**:
+  - Dark glassmorphism cards, glowing borders, crisp Poppins typography, and responsive grid.
+  - Symmetrical grid layout: **Berry Rank** (5th rank) and **Spawner Key** (7th key) use `.col-center-6` to remain the exact same size as other cards while centered horizontally on their rows.
+  - Dedicated custom artwork for all 7 keys (`Keyall`, `Turtle`, `Sun`, `Tropical`, `Shell`, `Coral`, `Spawner`).
+  - Minimalist "Coming Soon" card for **Network Points** matching the dark store theme.
   - Pulsing animated NorthSMP custom logo emblem.
   - One-click server IP copy button (`play.northsmp.net`) with animated toast feedback.
-  - Promotional release banner with a real-time countdown clock (Days, Hours, Minutes, Seconds).
-  - Community payment goal progress bar.
+  - 25% OFF Summer Sale promotion banner with a real-time countdown clock.
+  - Community payment goal progress bar (0% / $500.00).
 
 - **Dynamic Interactive Store Engine**:
-  - **Global Shopping Cart**: Real-time badge counter, dynamic quantity increments/decrements, item removal, and auto-calculating total.
-  - **Multi-Currency Switcher**: Instant switching between **USD ($)**, **EUR (€)**, **GBP (£)**, **CAD ($)**, **INR (₹)**, and **AUD ($)** with live price conversions.
-  - **Live Theme Toggle**: Switch between **NorthSMP Arctic Cyan** and **Crimson Flame** styles.
-  - **Minecraft Auth / Session**:
+  - **Global Shopping Cart**: Real-time badge counter, quantity controls, item removal, and auto-calculating total.
+  - **Multi-Currency Switcher**: Live price conversion across **USD ($)**, **EUR (€)**, **GBP (£)**, **CAD (C$)**, **INR (₹)**, and **AUD (A$)**.
+  - **Minecraft Authentication / Session**:
     - Java & Bedrock platform selector.
-    - Live player head/skin avatar preview powered by Minecraft Crafatar/MC-Heads API.
-    - Persistent login across all pages with user badge and logout button in header.
-  - **Package Lore & Perks Modal**: Full-featured modal displaying in-game commands, weekly kits, permissions, and claims.
-  - **Gifting System**: Send any rank, package, or keys as a gift to any Minecraft username.
-  - **Basket & Checkout Page**: Coupon code system (`NORTH25`, `WELCOME`), checkout agreements verification, and order confirmation simulation.
+    - Live player head/skin avatar preview powered by MC-Heads API.
+    - Persistent session across all pages with user badge in header.
+  - **Package Lore & Perks Modal**: Inspect in-game commands, weekly kits, permissions, and claim blocks.
+  - **Gifting System**: Gift any rank or key directly to any Minecraft IGN with real-time skin preview.
+  - **Basket & Checkout**: Coupon code system (`NORTH25`, `WELCOME`), checkout agreements verification, and order simulation modal.
 
 ---
 
-## 🚀 Running the Store Locally
+## ☁️ Deploying to Cloudflare Pages
 
-### Method 1: Using Node.js (Built-in Server)
+This repository is pre-configured for direct Git deployment on **Cloudflare Pages**:
+
+1. Log into your [Cloudflare Dashboard](https://dash.cloudflare.com/).
+2. Navigate to **Workers & Pages** ➔ **Create application** ➔ **Pages** ➔ **Connect to Git**.
+3. Select this repository: `ritikop123/North-smp-web`.
+4. Configure the build settings:
+   - **Framework preset**: `Vite`
+   - **Build command**: `npm run build`
+   - **Build output directory**: `dist`
+   - **Root directory**: *(leave empty / default)*
+5. Click **Save and Deploy**.
+
+> **Note on SPA Routing**: A [`public/_redirects`](public/_redirects) file is included (`/* /index.html 200`) so all client-side routes (e.g. `/ranks`, `/crates`, `/coins`, `/basket`) work seamlessly on Cloudflare without 404 errors.
+
+---
+
+## 🚀 Local Development
+
+### Prerequisites
+- Node.js (v18+ recommended)
+- npm
+
+### Installation & Scripts
 ```bash
-npm start
-# or
-node server.js
-```
-Then open [http://localhost:3000](http://localhost:3000) in your browser.
+# Install dependencies
+npm install
 
-### Method 2: Direct Browser Opening
-Simply double-click `index.html` to open it in Chrome, Edge, or Firefox.
+# Start development server (with hot module reload)
+npm run dev
+
+# Build obfuscated production bundle
+npm run build
+
+# Preview production build locally
+npm run preview
+# or
+npm start
+```
 
 ---
 
@@ -46,34 +81,27 @@ Simply double-click `index.html` to open it in Chrome, Edge, or Firefox.
 
 ```
 NorthSMP Web/
-├── index.html          # Main homepage (Sale banner, Categories, Info, Goal)
-├── ranks.html          # Economy & Server Ranks category
-├── coins.html          # Network Points & Gems category
-├── crates.html         # Crate Keys category
-├── login.html          # Minecraft player login (Java / Bedrock + 3D avatar)
-├── basket.html         # Basket & Checkout (Coupon codes, agreements, modal)
-├── server.js           # Lightweight zero-dependency HTTP server
-├── package.json        # Project metadata & start script
-├── assets/
-│   ├── css/
-│   │   └── style.css   # Full template stylesheets & custom theme variables
-│   ├── js/
-│   │   └── store.js    # Store engine (cart, promo clock, auth, toast, currency)
-│   └── images/
-│       ├── logo.svg    # Custom NorthSMP pulsing vector logo
-│       ├── ranks.svg   # 3D crown rank illustration
-│       ├── coins.svg   # 3D gem & coin illustration
-│       └── crates.svg  # 3D mystic crate illustration
-└── references/         # Extracted reference assets from FlaticSMP Everfront template
+├── public/                 # Static assets copied directly to dist/
+│   ├── _redirects          # Cloudflare Pages SPA rewrite rule
+│   └── assets/             # Images, icons, CSS stylesheets
+├── src/
+│   ├── components/         # Header, Footer, PackageCard, PackageModal, GiftModal, Toast
+│   ├── config/             # Server info, pricing, ranks, keys, coupons
+│   ├── context/            # React StoreContext (Cart, Currency, Auth, Modals)
+│   ├── pages/              # HomePage, RanksPage, CoinsPage, CratesPage, BasketPage, LoginPage, TermsPage, PrivacyPage
+│   ├── types/              # TypeScript interface definitions
+│   ├── App.tsx             # Main routing configuration
+│   └── main.tsx            # React DOM mounting entrypoint
+├── index.html              # Vite HTML template
+├── vite.config.ts          # Vite bundler configuration (minification, no sourcemap)
+├── tsconfig.json           # TypeScript configuration
+├── server.js / server.cjs  # Optional lightweight local HTTP server
+└── package.json            # Dependencies and scripts
 ```
 
 ---
 
-## ⚙️ How to Customize Further
+## 🔗 Official Links
 
-When you're ready to add more details:
-1. **Server IP**: Update `serverIp` inside `assets/js/store.js` or in the `copyToClipboard()` calls.
-2. **Discord Link**: Replace `https://discord.gg/northsmp` with your server's permanent invite link.
-3. **Packages & Pricing**: Add or edit ranks and crate items directly inside `ranks.html`, `coins.html`, and `crates.html`.
-4. **Tebex Webstore Integration**: To connect to a live Tebex webstore, simply add your Tebex account ident or API token.
-
+- **Server IP**: `play.northsmp.net` (Bedrock Port: `19132`)
+- **Official Discord**: [https://discord.gg/jfDn6n74Gr](https://discord.gg/jfDn6n74Gr)
