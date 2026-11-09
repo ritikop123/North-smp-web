@@ -22,123 +22,115 @@ export const Header: React.FC = () => {
     };
 
     return (
-        <header className="header">
-            {/* Top Navigation Bar */}
-            <nav className="nav-bar">
-                <div className="nav-container">
-                    <div className="nav-left">
-                        <Link
-                            to="/"
-                            className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}
-                        >
-                            <i className="fa-solid fa-house"></i> Home
-                        </Link>
-                    </div>
+        <header>
+            {/* Navigation Bar */}
+            <div className="navigation-row">
+                <div className="navigation-left">
+                    <Link
+                        to="/"
+                        className={`navigation-link text-navigation ${location.pathname === '/' ? 'active' : ''}`}
+                    >
+                        <i className="fa-solid fa-house"></i> Home
+                    </Link>
+                </div>
 
-                    <div className="nav-right">
-                        {/* Currency Selector */}
-                        <div className="currency-selector-container">
-                            <i className="fa-solid fa-coins currency-icon" aria-hidden="true"></i>
-                            <select
-                                className="currency-select"
-                                value={currency}
-                                onChange={(e) => setCurrency(e.target.value as CurrencyCode)}
-                                aria-label="Select Store Currency"
-                            >
-                                {Object.keys(CURRENCIES).map((code) => (
-                                    <option key={code} value={code}>
-                                        {code} ({CURRENCIES[code as CurrencyCode].symbol})
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
+                <div className="navigation-right">
+                    {/* Currency Selector */}
+                    <select
+                        className="currency-selector"
+                        value={currency}
+                        onChange={(e) => setCurrency(e.target.value as CurrencyCode)}
+                        aria-label="Select Store Currency"
+                    >
+                        {Object.keys(CURRENCIES).map((code) => (
+                            <option key={code} value={code}>
+                                {code} ({CURRENCIES[code as CurrencyCode].symbol})
+                            </option>
+                        ))}
+                    </select>
 
-                        {/* Discord Invite Button */}
-                        <a
-                            href={SERVER_CONFIG.discordUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="nav-link discord-link"
-                            aria-label="Join our Discord Server"
-                        >
-                            <i className="fa-brands fa-discord"></i> Discord
-                        </a>
+                    {/* Discord Link */}
+                    <a
+                        href={SERVER_CONFIG.discordUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="navigation-link text-navigation"
+                    >
+                        <i className="fa-brands fa-discord"></i> Discord
+                    </a>
+                </div>
+            </div>
+
+            {/* Header Block */}
+            <div className="header-block">
+                <div className="header-left">
+                    <button
+                        type="button"
+                        className="btn-copy-ip"
+                        onClick={handleCopyIp}
+                        title="Click to copy server IP"
+                    >
+                        <i className={`fa-solid ${copied ? 'fa-check' : 'fa-copy'}`}></i>
+                    </button>
+
+                    <div className="store-info">
+                        <h1 className="store-title text-title">{SERVER_CONFIG.name}</h1>
+                        <p className="store-subtitle text-subtitle">{SERVER_CONFIG.storeSubtitle}</p>
                     </div>
                 </div>
-            </nav>
 
-            {/* Server Branding & Action Bar */}
-            <div className="header-container">
-                <div className="header-content">
-                    {/* Left: Play Now / Copy IP */}
-                    <div className="header-left">
-                        <button
-                            type="button"
-                            className={`header-primary-button ${copied ? 'copied' : ''}`}
-                            onClick={handleCopyIp}
-                            title="Click to copy server IP"
-                        >
-                            <div className="header-primary-icon">
-                                <i className={`fa-solid ${copied ? 'fa-check' : 'fa-play'}`}></i>
-                            </div>
-                            <div className="header-primary-text">
-                                <span className="button-title">
-                                    {copied ? 'IP COPIED!' : 'PLAY NOW'}
-                                </span>
-                                <span className="button-subtitle">{SERVER_CONFIG.ip}</span>
-                            </div>
-                        </button>
-                    </div>
+                <div className="header-center">
+                    <Link to="/" className="store-logo-link" aria-label="NorthSMP Store">
+                        <img
+                            src="/assets/images/northsmp.png"
+                            alt="NorthSMP"
+                            className="store-logo is-pulsing"
+                            style={{ maxWidth: '360px', maxHeight: '180px', width: 'auto', height: 'auto', objectFit: 'contain' }}
+                        />
+                    </Link>
+                </div>
 
-                    {/* Center: NorthSMP Logo & Welcome Subtitle */}
-                    <div className="header-center">
-                        <Link to="/" className="header-logo-link" aria-label="NorthSMP Store Home">
+                <div className="header-right">
+                    <Link to="/login" className="header-primary-button">
+                        {user ? (
                             <img
-                                src="/assets/images/northsmp.png"
-                                alt="NorthSMP Server Logo"
-                                className="header-logo pulse-glow"
+                                src={user.avatarUrl}
+                                alt={user.username}
+                                style={{ width: 22, height: 22, borderRadius: 4, display: 'inline-block' }}
                             />
-                        </Link>
-                        <p className="header-server-subtitle">{SERVER_CONFIG.storeSubtitle}</p>
-                    </div>
+                        ) : (
+                            <i className="fa-solid fa-user"></i>
+                        )}
+                        <span className="button-text">
+                            {user ? user.username : 'Login'}
+                        </span>
+                    </Link>
 
-                    {/* Right: Login / Player Profile & Cart */}
-                    <div className="header-right">
-                        <Link
-                            to="/login"
-                            className={`header-secondary-button ${user ? 'logged-in' : ''}`}
-                            aria-label={user ? `Logged in as ${user.username}` : 'Login to store'}
-                        >
-                            <div className="header-secondary-icon">
-                                {user ? (
-                                    <img
-                                        src={user.avatarUrl}
-                                        alt={user.username}
-                                        style={{ width: 22, height: 22, borderRadius: 4, display: 'block' }}
-                                    />
-                                ) : (
-                                    <i className="fa-solid fa-user"></i>
-                                )}
-                            </div>
-                            <span className="button-text">
-                                {user ? user.username : 'Login'}
-                            </span>
-                        </Link>
-
-                        <Link
-                            to="/basket"
-                            className="header-secondary-button cart-btn"
-                            aria-label="View Shopping Cart"
-                        >
-                            <div className="cart-badge">
-                                <i className="fa-solid fa-cart-shopping"></i>
-                                {totalCartCount > 0 && (
-                                    <span className="cart-count-pill">{totalCartCount}</span>
-                                )}
-                            </div>
-                            <span className="button-text">Cart</span>
-                        </Link>
-                    </div>
+                    <Link to="/basket" className="header-secondary-button">
+                        <div className="cart-badge" style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+                            <i className="fa-solid fa-cart-shopping"></i>
+                            {totalCartCount > 0 && (
+                                <span
+                                    style={{
+                                        position: 'absolute',
+                                        top: '-8px',
+                                        right: '-10px',
+                                        background: 'var(--primary-color, #00C0FF)',
+                                        color: '#fff',
+                                        fontSize: '0.7rem',
+                                        fontWeight: 800,
+                                        padding: '2px 6px',
+                                        borderRadius: '10px',
+                                        minWidth: '16px',
+                                        textAlign: 'center'
+                                    }}
+                                >
+                                    {totalCartCount}
+                                </span>
+                            )}
+                        </div>
+                        <span className="button-text">Cart</span>
+                    </Link>
                 </div>
             </div>
         </header>

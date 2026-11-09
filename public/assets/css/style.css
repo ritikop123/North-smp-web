@@ -6234,3 +6234,6 @@ body {
     image-rendering: pixelated;
     border: 1px solid var(--primary-color);
 }
+
+/* Safety logo sizing */
+.store-logo, .header-logo { max-width: 360px !important; max-height: 200px !important; width: auto !important; height: auto !important; object-fit: contain !important; }
