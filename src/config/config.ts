@@ -2,8 +2,8 @@ import { CurrencyCode, CurrencyConfig, Package } from '../types/store';
 
 export const SERVER_CONFIG = {
     name: 'NorthSMP',
-    ip: 'play.northsmp.net',
-    bedrockPort: 19132,
+    ip: 'northsmp.fun',
+    bedrockPort: 19036,
     discordUrl: 'https://discord.gg/jfDn6n74Gr',
     storeSubtitle: 'Welcome to North SMP Store!',
     goalTarget: 500,

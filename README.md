@@ -17,7 +17,7 @@ The official modern webstore for **NorthSMP**, built with **React**, **TypeScrip
   - Dedicated custom artwork for all 7 keys (`Keyall`, `Turtle`, `Sun`, `Tropical`, `Shell`, `Coral`, `Spawner`).
   - Minimalist "Coming Soon" card for **Network Points** matching the dark store theme.
   - Pulsing animated NorthSMP custom logo emblem.
-  - One-click server IP copy button (`play.northsmp.net`) with animated toast feedback.
+  - One-click server IP copy button (`northsmp.fun`) with animated toast feedback.
   - 25% OFF Summer Sale promotion banner with a real-time countdown clock.
   - Community payment goal progress bar (0% / $500.00).
 
@@ -103,5 +103,5 @@ NorthSMP Web/
 
 ## 🔗 Official Links
 
-- **Server IP**: `play.northsmp.net` (Bedrock Port: `19132`)
+- **Server IP**: `northsmp.fun` (Bedrock Port: `19036`)
 - **Official Discord**: [https://discord.gg/jfDn6n74Gr](https://discord.gg/jfDn6n74Gr)

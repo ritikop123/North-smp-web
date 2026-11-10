@@ -7,8 +7,8 @@
 const STORE_CONFIG = window.NORTH_CONFIG || {
     server: {
         name: "NorthSMP",
-        ip: "play.northsmp.net",
-        bedrockPort: "19132",
+        ip: "northsmp.fun",
+        bedrockPort: "19036",
         discordUrl: "https://discord.gg/jfDn6n74Gr",
         bedrockPrefix: "."
     },
@@ -302,7 +302,7 @@ class StoreEngine {
     }
 
     // Clipboard Copy
-    copyIp(ip = STORE_CONFIG.server?.ip || "play.northsmp.net") {
+    copyIp(ip = STORE_CONFIG.server?.ip || "northsmp.fun") {
         navigator.clipboard.writeText(ip).then(() => {
             const btn = document.querySelector(".btn-copy-ip");
             if (btn) {

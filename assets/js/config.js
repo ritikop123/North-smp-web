@@ -5,9 +5,9 @@
 const NORTH_CONFIG = {
     server: {
         name: "NorthSMP",
-        ip: "play.northsmp.net",
-        bedrockIp: "bedrock.northsmp.net",
-        bedrockPort: "19132",
+        ip: "northsmp.fun",
+        bedrockIp: "northsmp.fun",
+        bedrockPort: "19036",
         bedrockPrefix: ".", // GeyserMC Bedrock prefix
         discordUrl: "https://discord.gg/jfDn6n74Gr",
         websiteUrl: "https://northsmp.net"
