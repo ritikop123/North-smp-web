@@ -34,21 +34,18 @@ The official modern webstore for **NorthSMP**, built with **React**, **TypeScrip
 
 ---
 
-## ☁️ Deploying to Cloudflare Pages
+## ▲ Deploying to Vercel
 
-This repository is pre-configured for direct Git deployment on **Cloudflare Pages**:
+This repository is pre-configured for instant zero-configuration deployment on **Vercel**:
 
-1. Log into your [Cloudflare Dashboard](https://dash.cloudflare.com/).
-2. Navigate to **Workers & Pages** ➔ **Create application** ➔ **Pages** ➔ **Connect to Git**.
-3. Select this repository: `ritikop123/North-smp-web`.
-4. Configure the build settings:
-   - **Framework preset**: `Vite`
-   - **Build command**: `npm run build`
-   - **Build output directory**: `dist`
-   - **Root directory**: *(leave empty / default)*
-5. Click **Save and Deploy**.
+1. Log into your [Vercel Dashboard](https://vercel.com).
+2. Click **Add New...** ➔ **Project** ➔ Import `ritikop123/North-smp-web`.
+3. Vercel automatically detects the **Vite** framework preset:
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+4. Click **Deploy**.
 
-> **Note on SPA Routing**: A [`public/_redirects`](public/_redirects) file is included (`/* /index.html 200`) so all client-side routes (e.g. `/ranks`, `/crates`, `/coins`, `/basket`) work seamlessly on Cloudflare without 404 errors.
+> **Note on SPA Routing**: A [`vercel.json`](vercel.json) rewrite rule is included so direct navigation and page refreshes (e.g. `/ranks`, `/crates`, `/coins`, `/basket`) work seamlessly without 404s.
 
 ---
 
