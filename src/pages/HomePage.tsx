@@ -69,11 +69,11 @@ export const HomePage: React.FC = () => {
                 </div>
             </div>
 
-            {/* Store Categories Grid (Symmetrical 3 Cards) */}
+            {/* Store Categories Grid (Symmetrical 2-on-top, 1-centered) */}
             <div className="category-grid" style={{ marginTop: '2rem' }}>
                 <div className="grid-row">
                     {/* Economy Ranks */}
-                    <div className="col-4">
+                    <div className="col-6">
                         <Link to="/ranks" className="category-button">
                             <div className="category-eclipse"></div>
                             <div className="category-content">
@@ -90,26 +90,8 @@ export const HomePage: React.FC = () => {
                         </Link>
                     </div>
 
-                    {/* Network Points (Coming Soon) */}
-                    <div className="col-4">
-                        <Link to="/coins" className="category-button">
-                            <div className="category-eclipse"></div>
-                            <div className="category-content">
-                                <h2 className="text-header">Network Points</h2>
-                                <p className="text-title" style={{ color: '#64D2F9', fontWeight: 600 }}>Coming Soon</p>
-                            </div>
-                            <div className="category-image-container">
-                                <img
-                                    src="/assets/images/tressurechest.png"
-                                    alt="Network Points"
-                                    style={{ maxHeight: '130px', objectFit: 'contain' }}
-                                />
-                            </div>
-                        </Link>
-                    </div>
-
                     {/* Crate Keys */}
-                    <div className="col-4">
+                    <div className="col-6">
                         <Link to="/crates" className="category-button">
                             <div className="category-eclipse"></div>
                             <div className="category-content">
@@ -120,6 +102,24 @@ export const HomePage: React.FC = () => {
                                 <img
                                     src="/assets/images/keys.png"
                                     alt="Crate Keys"
+                                    style={{ maxHeight: '130px', objectFit: 'contain' }}
+                                />
+                            </div>
+                        </Link>
+                    </div>
+
+                    {/* Network Points (Coming Soon - Symmetrically Centered) */}
+                    <div className="col-center-6">
+                        <Link to="/coins" className="category-button">
+                            <div className="category-eclipse"></div>
+                            <div className="category-content">
+                                <h2 className="text-header">Network Points</h2>
+                                <p className="text-title" style={{ color: '#64D2F9', fontWeight: 600 }}>Coming Soon</p>
+                            </div>
+                            <div className="category-image-container">
+                                <img
+                                    src="/assets/images/tressurechest.png"
+                                    alt="Network Points"
                                     style={{ maxHeight: '130px', objectFit: 'contain' }}
                                 />
                             </div>
