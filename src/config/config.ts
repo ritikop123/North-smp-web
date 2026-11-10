@@ -155,9 +155,9 @@ export const RANKS_DATA: Package[] = [
 export const CRATES_DATA: Package[] = [
     {
         id: 'key-keyall',
-        name: 'Keyall Key',
-        price: 0.99,
-        originalPrice: 1.49,
+        name: 'Keyall Crate Key',
+        price: 2.00,
+        originalPrice: 2.99,
         image: '/assets/images/keyallkey.png',
         category: 'Crates',
         perksHtml: `
@@ -173,72 +173,34 @@ export const CRATES_DATA: Package[] = [
         `
     },
     {
-        id: 'key-turtle',
-        name: 'Turtle Key',
-        price: 1.33,
-        originalPrice: 1.99,
-        image: '/assets/images/turtlekey.png',
+        id: 'key-palm',
+        name: 'Palm Crate Key',
+        price: 3.00,
+        originalPrice: 4.49,
+        image: '/assets/images/palmkey.png',
         category: 'Crates',
         perksHtml: `
             <div class="pkg-perks-container">
-                <h4><strong>🐢 TURTLE KEY REWARDS:</strong></h4>
+                <h4><strong>🌴 PALM CRATE KEY REWARDS:</strong></h4>
                 <ul style="line-height: 1.8; margin-top: 8px;">
-                    <li>Enchanted Turtle Shells (Respiration III &amp; Water Breathing)</li>
-                    <li>Potions of the Turtle Master (Resistance IV)</li>
-                    <li>Scute bundle, Sea Pickles &amp; Kelp farms</li>
-                    <li><strong>+1,500 Bonus Claim Blocks</strong> &amp; $15,000 In-Game Cash</li>
-                </ul>
-            </div>
-        `
-    },
-    {
-        id: 'key-sun',
-        name: 'Sun Key',
-        price: 1.99,
-        originalPrice: 2.69,
-        image: '/assets/images/sunkey.png',
-        category: 'Crates',
-        perksHtml: `
-            <div class="pkg-perks-container">
-                <h4><strong>☀️ SUN KEY REWARDS:</strong></h4>
-                <ul style="line-height: 1.8; margin-top: 8px;">
-                    <li>Radiant Solar Armor (Protection IV &amp; Fire Protection IV)</li>
-                    <li>Fire Aspect II &amp; Flame Enchanted Bows</li>
-                    <li>Golden Apples &amp; Enchanted Golden Apples</li>
-                    <li>Glowstone, Shroomlights &amp; $25,000 In-Game Cash</li>
-                </ul>
-            </div>
-        `
-    },
-    {
-        id: 'key-tropical',
-        name: 'Tropical Key',
-        price: 2.49,
-        originalPrice: 3.29,
-        image: '/assets/images/tropicalkey.png',
-        category: 'Crates',
-        perksHtml: `
-            <div class="pkg-perks-container">
-                <h4><strong>🌴 TROPICAL KEY REWARDS:</strong></h4>
-                <ul style="line-height: 1.8; margin-top: 8px;">
-                    <li>Loyalty III &amp; Riptide III Enchanted Tridents</li>
-                    <li>Exotic Coral blocks, Tropical Fish buckets &amp; Sea Lanterns</li>
-                    <li>Depth Strider III Diamond Boots</li>
-                    <li><strong>+5,000 Claim Blocks</strong> &amp; $35,000 In-Game Cash</li>
+                    <li>Palm Wood bundles, Coconuts &amp; Tropical saplings</li>
+                    <li>Enchanted Golden Apples &amp; Survival Boosters</li>
+                    <li>Diamond Tools (Efficiency V &amp; Fortune III)</li>
+                    <li><strong>+3,000 Bonus Claim Blocks</strong> &amp; $25,000 In-Game Cash</li>
                 </ul>
             </div>
         `
     },
     {
         id: 'key-shell',
-        name: 'Shell Key',
-        price: 2.99,
-        originalPrice: 3.99,
+        name: 'Shell Crate Key',
+        price: 4.00,
+        originalPrice: 5.49,
         image: '/assets/images/shellkey.png',
         category: 'Crates',
         perksHtml: `
             <div class="pkg-perks-container">
-                <h4><strong>🐚 SHELL KEY REWARDS:</strong></h4>
+                <h4><strong>🐚 SHELL CRATE KEY REWARDS:</strong></h4>
                 <ul style="line-height: 1.8; margin-top: 8px;">
                     <li>Nautilus Shells (8x) &amp; Heart of the Sea (Conduit Power)</li>
                     <li>Mending &amp; Unbreaking III Enchantment Books</li>
@@ -250,14 +212,14 @@ export const CRATES_DATA: Package[] = [
     },
     {
         id: 'key-coral',
-        name: 'Coral Key',
-        price: 3.49,
-        originalPrice: 4.69,
+        name: 'Coral Crate Key',
+        price: 5.00,
+        originalPrice: 6.99,
         image: '/assets/images/coralkey.png',
         category: 'Crates',
         perksHtml: `
             <div class="pkg-perks-container">
-                <h4><strong>🪸 CORAL KEY REWARDS:</strong></h4>
+                <h4><strong>🪸 CORAL CRATE KEY REWARDS:</strong></h4>
                 <ul style="line-height: 1.8; margin-top: 8px;">
                     <li>High-Tier Netherite Gear (Protection IV &amp; Sharpness V)</li>
                     <li>Elytra with Unbreaking III &amp; Mending</li>
@@ -268,20 +230,21 @@ export const CRATES_DATA: Package[] = [
         `
     },
     {
-        id: 'key-spawner',
-        name: 'Spawner Key',
-        price: 3.99,
-        originalPrice: 5.49,
-        image: '/assets/images/spawnerkey.png',
+        id: 'key-tropical',
+        name: 'Tropical Crate Key',
+        price: 6.00,
+        originalPrice: 8.49,
+        image: '/assets/images/tropicalkey.png',
         category: 'Crates',
         perksHtml: `
             <div class="pkg-perks-container">
-                <h4><strong>👾 SPAWNER KEY [TOP TIER]:</strong></h4>
+                <h4><strong>🌺 TROPICAL CRATE KEY [TOP TIER]:</strong></h4>
                 <ul style="line-height: 1.8; margin-top: 8px;">
-                    <li>Guaranteed <strong>Mob Spawner</strong> (Creeper, Iron Golem, Blaze, Skeleton)</li>
-                    <li>Silk Touch Netherite Pickaxe (Efficiency VI)</li>
-                    <li>Rare Mob Spawn Eggs &amp; Automatic farm components</li>
+                    <li>Loyalty III &amp; Riptide III Enchanted Tridents</li>
+                    <li>God Netherite Armor Set &amp; Enchanted Golden Apples</li>
+                    <li>Depth Strider III Netherite Boots</li>
                     <li><strong>+20,000 Claim Blocks</strong> &amp; $100,000 In-Game Cash</li>
+                    <li>Server-wide celebration announcement in chat!</li>
                 </ul>
             </div>
         `

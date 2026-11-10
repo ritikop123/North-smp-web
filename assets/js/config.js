@@ -34,13 +34,11 @@ const NORTH_CONFIG = {
         { id: "rank-berry", name: "Berry [Permanent]", price: 32.99, image: "assets/images/berry.png" }
     ],
     crates: [
-        { id: "key-keyall", name: "Keyall Key", price: 0.99, image: "assets/images/keyallkey.png" },
-        { id: "key-turtle", name: "Turtle Key", price: 1.33, image: "assets/images/turtlekey.png" },
-        { id: "key-sun", name: "Sun Key", price: 1.99, image: "assets/images/sunkey.png" },
-        { id: "key-tropical", name: "Tropical Key", price: 2.49, image: "assets/images/tropicalkey.png" },
-        { id: "key-shell", name: "Shell Key", price: 2.99, image: "assets/images/shellkey.png" },
-        { id: "key-coral", name: "Coral Key", price: 3.49, image: "assets/images/coralkey.png" },
-        { id: "key-spawner", name: "Spawner Key", price: 3.99, image: "assets/images/spawnerkey.png" }
+        { id: "key-keyall", name: "Keyall Crate Key", price: 2.00, image: "assets/images/keyallkey.png" },
+        { id: "key-palm", name: "Palm Crate Key", price: 3.00, image: "assets/images/palmkey.png" },
+        { id: "key-shell", name: "Shell Crate Key", price: 4.00, image: "assets/images/shellkey.png" },
+        { id: "key-coral", name: "Coral Crate Key", price: 5.00, image: "assets/images/coralkey.png" },
+        { id: "key-tropical", name: "Tropical Crate Key", price: 6.00, image: "assets/images/tropicalkey.png" }
     ],
     goal: {
         title: "Community Goal - Dedicated High-RAM Node",

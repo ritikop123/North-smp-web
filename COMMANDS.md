@@ -49,51 +49,38 @@ broadcast &f[&bNorth&3SMP&f] &5{username} &7has unlocked the ultimate &d&l[Berry
 
 > Replace `crate give` with your server crate plugin syntax if different (e.g., `cc give physical <crate> <amount> {username}`).
 
-### 1. Keyall Key ($0.99)
+### 1. Keyall Crate Key ($2.00)
 ```text
 crate giveall keyall 1
 crate give {username} keyall 2
 broadcast &f[&bNorth&3SMP&f] &a{username} &7has sponsored a &e&lSERVER-WIDE KEYALL PARTY&7! Everyone received 1x Keyall Key!
 ```
 
-### 2. Turtle Key ($1.33)
+### 2. Palm Crate Key ($3.00)
 ```text
-crate give {username} turtle 1
-acb {username} 1500
-eco give {username} 15000
-```
-
-### 3. Sun Key ($1.99)
-```text
-crate give {username} sun 1
+crate give {username} palm 1
+acb {username} 3000
 eco give {username} 25000
 ```
 
-### 4. Tropical Key ($2.49)
-```text
-crate give {username} tropical 1
-acb {username} 5000
-eco give {username} 35000
-```
-
-### 5. Shell Key ($2.99)
+### 3. Shell Crate Key ($4.00)
 ```text
 crate give {username} shell 1
 acb {username} 8000
 eco give {username} 50000
 ```
 
-### 6. Coral Key ($3.49)
+### 4. Coral Crate Key ($5.00)
 ```text
 crate give {username} coral 1
 acb {username} 12000
 eco give {username} 75000
 ```
 
-### 7. Spawner Key [Top Tier] ($3.99)
+### 5. Tropical Crate Key [Top Tier] ($6.00)
 ```text
-crate give {username} spawner 1
+crate give {username} tropical 1
 acb {username} 20000
 eco give {username} 100000
-broadcast &f[&bNorth&3SMP&f] &b{username} &7has acquired a &d[Spawner Key]&7!
+broadcast &f[&bNorth&3SMP&f] &b{username} &7has acquired a &d[Tropical Crate Key]&7!
 ```

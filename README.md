@@ -13,8 +13,8 @@ The official modern webstore for **NorthSMP**, built with **React**, **TypeScrip
   
 - **Visual Design & Symmetry**:
   - Dark glassmorphism cards, glowing borders, crisp Poppins typography, and responsive grid.
-  - Symmetrical grid layout: **Berry Rank** (5th rank) and **Spawner Key** (7th key) use `.col-center-6` to remain the exact same size as other cards while centered horizontally on their rows.
-  - Dedicated custom artwork for all 7 keys (`Keyall`, `Turtle`, `Sun`, `Tropical`, `Shell`, `Coral`, `Spawner`).
+  - Symmetrical grid layout: **Berry Rank** (5th rank) and **Tropical Crate Key** (5th key) use `.col-center-6` to remain the exact same size as other cards while centered horizontally on their rows.
+  - Dedicated custom artwork for all 5 crate keys (`Keyall`, `Palm`, `Shell`, `Coral`, `Tropical`).
   - Minimalist "Coming Soon" card for **Network Points** matching the dark store theme.
   - Pulsing animated NorthSMP custom logo emblem.
   - One-click server IP copy button (`northsmp.fun`) with animated toast feedback.
