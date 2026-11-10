@@ -112,7 +112,7 @@ export const Footer: React.FC = () => {
                             </p>
                         </div>
                         <div className="footer-credits">
-                            <p>Powered by <strong>NorthSMP Engine</strong></p>
+                            <p>Developed by: <strong>ritik</strong></p>
                         </div>
                     </div>
                 </div>
