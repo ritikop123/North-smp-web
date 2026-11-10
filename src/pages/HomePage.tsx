@@ -32,20 +32,23 @@ export const HomePage: React.FC = () => {
 
     return (
         <div className="home-page">
-            {/* Sale Promotion Banner */}
-            <div className="sale-banner-block">
-                <div className="sale-banner-content">
-                    <div className="sale-badge">
-                        <i className="fa-solid fa-fire"></i>
-                        <span>LIMITED TIME OFFER</span>
-                    </div>
-                    <h2 className="sale-title">
-                        <span>25% OFF</span> SUMMER STORE SALE!
-                    </h2>
-                    <p className="sale-subtitle">
-                        Use promo coupon code <strong className="sale-code">NORTH25</strong> at checkout for 25% off all ranks and crates!
+            {/* Sale Announcement Banner with Live Countdown */}
+            <div className="sale-banner">
+                <div className="sale-tag">
+                    <span className="text-header">25%</span>
+                </div>
+
+                <div className="sale-info">
+                    <h2 className="sale-name text-header">SUMMER STORE SALE</h2>
+                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', margin: '6px 0 0 0', textAlign: 'center' }}>
+                        Use code <strong style={{ color: 'var(--primary-color)' }}>NORTH25</strong> for 25% off ranks &amp; keys!
                     </p>
-                    <div className="sale-countdown">
+                </div>
+
+                <div className="sale-accent-block"></div>
+
+                <div className="sale-countdown">
+                    <div className="countdown-grid">
                         <div className="countdown-unit">
                             <strong className="text-header countdown-days">{formatNum(timeLeft.days)}</strong>
                             <small>DAYS</small>
